@@ -56,6 +56,13 @@ public class Regular_Customer_Registration extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
+        fullnametxt = new javax.swing.JTextField();
+        usernametxt = new javax.swing.JTextField();
+        phnotxt = new javax.swing.JTextField();
+        venotxt = new javax.swing.JTextField();
+        addtxt = new javax.swing.JTextField();
+        passwordtxt = new javax.swing.JPasswordField();
+        cnfpasswordtxt = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,19 +79,19 @@ public class Regular_Customer_Registration extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel2.setForeground(java.awt.Color.white);
         jLabel2.setText("FULL NAME");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 106, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 141, 287, 10));
 
         jLabel3.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel3.setForeground(java.awt.Color.white);
         jLabel3.setText("USERNAME");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 171, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
         jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 220, 287, 10));
 
         jLabel4.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel4.setForeground(java.awt.Color.white);
         jLabel4.setText("PASSWORD");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 248, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, -1, -1));
         jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 291, 287, 10));
 
         jLabel5.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -119,7 +126,7 @@ public class Regular_Customer_Registration extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel7.setForeground(java.awt.Color.white);
         jLabel7.setText("PHONE NUMBER");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(356, 107, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 90, -1, 20));
         jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(356, 142, 308, 8));
 
         jLabel8.setBackground(new java.awt.Color(24, 10, 10));
@@ -129,18 +136,17 @@ public class Regular_Customer_Registration extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel9.setForeground(java.awt.Color.white);
         jLabel9.setText("VEHICLE NUMBER");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(356, 168, -1, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, -1, -1));
         jPanel1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(356, 220, 308, 10));
 
         jLabel10.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel10.setForeground(java.awt.Color.white);
         jLabel10.setText("ADDRESS");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(356, 248, -1, -1));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 250, -1, -1));
         jPanel1.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(356, 296, 308, -1));
 
         jCheckBox1.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jCheckBox1.setForeground(java.awt.Color.white);
-        jCheckBox1.setSelected(true);
         jCheckBox1.setText("I agree all terms of service");
         jPanel1.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(356, 314, -1, -1));
 
@@ -159,7 +165,7 @@ public class Regular_Customer_Registration extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jLabel11)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,19 +189,19 @@ public class Regular_Customer_Registration extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addContainerGap()
                 .addComponent(jLabel12)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel12)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 370, -1, -1));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 370, -1, 40));
 
         jPanel4.setBackground(new java.awt.Color(97, 212, 195));
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.white, 2));
@@ -227,11 +233,58 @@ public class Regular_Customer_Registration extends javax.swing.JFrame {
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 370, 90, 40));
 
+        fullnametxt.setBackground(new java.awt.Color(36, 47, 65));
+        fullnametxt.setForeground(java.awt.Color.white);
+        fullnametxt.setBorder(null);
+        fullnametxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fullnametxtActionPerformed(evt);
+            }
+        });
+        jPanel1.add(fullnametxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 280, -1));
+
+        usernametxt.setBackground(new java.awt.Color(36, 47, 65));
+        usernametxt.setForeground(java.awt.Color.white);
+        usernametxt.setBorder(null);
+        jPanel1.add(usernametxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 280, -1));
+
+        phnotxt.setBackground(new java.awt.Color(36, 47, 65));
+        phnotxt.setForeground(java.awt.Color.white);
+        phnotxt.setBorder(null);
+        jPanel1.add(phnotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 120, 300, -1));
+
+        venotxt.setBackground(new java.awt.Color(36, 47, 65));
+        venotxt.setForeground(java.awt.Color.white);
+        venotxt.setBorder(null);
+        jPanel1.add(venotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 200, 300, -1));
+
+        addtxt.setBackground(new java.awt.Color(36, 47, 65));
+        addtxt.setForeground(java.awt.Color.white);
+        addtxt.setBorder(null);
+        addtxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addtxtActionPerformed(evt);
+            }
+        });
+        jPanel1.add(addtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 280, 300, -1));
+
+        passwordtxt.setBackground(new java.awt.Color(36, 47, 65));
+        passwordtxt.setForeground(java.awt.Color.white);
+        passwordtxt.setBorder(null);
+        jPanel1.add(passwordtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 280, -1));
+
+        cnfpasswordtxt.setBackground(new java.awt.Color(36, 47, 65));
+        cnfpasswordtxt.setForeground(java.awt.Color.white);
+        cnfpasswordtxt.setBorder(null);
+        jPanel1.add(cnfpasswordtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, 280, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 709, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 709, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 24, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -244,6 +297,14 @@ public class Regular_Customer_Registration extends javax.swing.JFrame {
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void fullnametxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fullnametxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fullnametxtActionPerformed
+
+    private void addtxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addtxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addtxtActionPerformed
 
     /**
      * @param args the command line arguments
@@ -281,6 +342,9 @@ public class Regular_Customer_Registration extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField addtxt;
+    private javax.swing.JPasswordField cnfpasswordtxt;
+    private javax.swing.JTextField fullnametxt;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -310,5 +374,9 @@ public class Regular_Customer_Registration extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
+    private javax.swing.JPasswordField passwordtxt;
+    private javax.swing.JTextField phnotxt;
+    private javax.swing.JTextField usernametxt;
+    private javax.swing.JTextField venotxt;
     // End of variables declaration//GEN-END:variables
 }
