@@ -265,7 +265,7 @@ public class user extends javax.swing.JFrame {
 
     private void jPanel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel5MouseClicked
            this.setVisible(false); 
-           new Regular_Customer().setVisible(true);
+           new Regular_Customer_login().setVisible(true);
     }//GEN-LAST:event_jPanel5MouseClicked
 
     private void jPanel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseClicked
@@ -279,7 +279,7 @@ public class user extends javax.swing.JFrame {
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
         this.setVisible(false); 
-           new Regular_Customer().setVisible(true);// TODO add your handling code here:
+           new Regular_Customer_login().setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_jLabel1MouseClicked
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked

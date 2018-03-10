@@ -76,6 +76,11 @@ public class Regular_Customer_login extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(36, 47, 65));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.white, 2));
+        jPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel2MouseClicked(evt);
+            }
+        });
 
         jLabel4.setForeground(java.awt.Color.white);
         jLabel4.setText("LOGIN");
@@ -99,6 +104,11 @@ public class Regular_Customer_login extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(37, 46, 65));
         jPanel3.setBorder(new javax.swing.border.LineBorder(java.awt.Color.white, 2, true));
+        jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel3MouseClicked(evt);
+            }
+        });
 
         jLabel5.setBackground(new java.awt.Color(37, 46, 65));
         jLabel5.setForeground(java.awt.Color.white);
@@ -193,6 +203,16 @@ public class Regular_Customer_login extends javax.swing.JFrame {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jPanel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseClicked
+ //this.setVisible(false); 
+           //new Regular_Customer().setVisible(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel2MouseClicked
+
+    private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
+ this.setVisible(false); 
+           new Regular_Customer_login().setVisible(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel3MouseClicked
 
     /**
      * @param args the command line arguments
