@@ -51,8 +51,8 @@ public class Regular_Customer extends javax.swing.JFrame {
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.white, 3));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ppp/Icons/icons8-person-96.png"))); // NOI18N
-        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, -1, 90));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ppp/Icons/Checked User Male_96px.png"))); // NOI18N
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, -1, 90));
 
         jLabel2.setFont(new java.awt.Font("Noto Sans CJK KR DemiLight", 0, 14)); // NOI18N
         jLabel2.setForeground(java.awt.Color.white);
@@ -124,6 +124,11 @@ public class Regular_Customer extends javax.swing.JFrame {
 
         jPanel5.setBackground(new java.awt.Color(97, 212, 195));
         jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.white, 3));
+        jPanel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel5MouseClicked(evt);
+            }
+        });
 
         jLabel5.setBackground(new java.awt.Color(97, 212, 195));
         jLabel5.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
@@ -152,11 +157,13 @@ public class Regular_Customer extends javax.swing.JFrame {
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, 490));
 
         jPanel2.setBackground(new java.awt.Color(36, 47, 65));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
         jPanel2.setForeground(new java.awt.Color(225, 240, 238));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ppp/Icons/icons8-male-user-96.png"))); // NOI18N
         jLabel6.setText("jLabel6");
 
+        Manageaccbtn.setBackground(new java.awt.Color(204, 204, 204));
         Manageaccbtn.setText("Manage Account");
         Manageaccbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -222,10 +229,10 @@ public class Regular_Customer extends javax.swing.JFrame {
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton3)
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 0, 380, 490));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 0, 370, 490));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -249,6 +256,11 @@ public class Regular_Customer extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jPanel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel5MouseClicked
+       this.setVisible(false);
+        new user().setVisible(true);  // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel5MouseClicked
 
     /**
      * @param args the command line arguments
