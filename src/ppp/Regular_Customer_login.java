@@ -51,10 +51,11 @@ public class Regular_Customer_login extends javax.swing.JFrame {
         jLabel1.setText(" REGULAR CUSTOMER LOGIN");
         jLabel1.setBorder(new javax.swing.border.LineBorder(java.awt.Color.white, 3, true));
 
-        jLabel2.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel2.setForeground(java.awt.Color.white);
         jLabel2.setText("USERNAME");
 
+        jLabel3.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel3.setForeground(java.awt.Color.white);
         jLabel3.setText("PASSWORD");
 
@@ -74,9 +75,10 @@ public class Regular_Customer_login extends javax.swing.JFrame {
             }
         });
 
-        jPanel2.setBackground(new java.awt.Color(36, 47, 65));
+        jPanel2.setBackground(new java.awt.Color(97, 212, 195));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.white, 2));
 
+        jLabel4.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel4.setForeground(java.awt.Color.white);
         jLabel4.setText("LOGIN");
 
@@ -97,10 +99,11 @@ public class Regular_Customer_login extends javax.swing.JFrame {
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
-        jPanel3.setBackground(new java.awt.Color(37, 46, 65));
+        jPanel3.setBackground(new java.awt.Color(97, 212, 195));
         jPanel3.setBorder(new javax.swing.border.LineBorder(java.awt.Color.white, 2, true));
 
         jLabel5.setBackground(new java.awt.Color(37, 46, 65));
+        jLabel5.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel5.setForeground(java.awt.Color.white);
         jLabel5.setText("RESET");
 
@@ -173,7 +176,7 @@ public class Regular_Customer_login extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
