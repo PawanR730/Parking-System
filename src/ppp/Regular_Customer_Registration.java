@@ -158,6 +158,11 @@ public class Regular_Customer_Registration extends javax.swing.JFrame {
         jCheckBox1.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jCheckBox1.setForeground(java.awt.Color.white);
         jCheckBox1.setText("I agree all terms of service");
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(356, 314, -1, -1));
 
         jPanel2.setBackground(new java.awt.Color(97, 212, 195));
@@ -354,7 +359,7 @@ public class Regular_Customer_Registration extends javax.swing.JFrame {
                 String c_pass = passwordtxt.getText();
                 String c_compass = cnfpasswordtxt.getText();
                 String c_name = fullnametxt.getText();
-             
+                String c_check=check;
                 String c_gen = gender;
                 String c_phone = phnotxt.getText();
                 String c_address = addtxt.getText();
@@ -368,6 +373,10 @@ public class Regular_Customer_Registration extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Please enter Comfirm Password");            
                 }else if("".equals(c_name)){
                     JOptionPane.showMessageDialog(null, "Please enter your Full Name");
+                }
+                else if(c_check==null)
+                {
+                  JOptionPane.showMessageDialog(null, "Please agree to the terms of service");  
                 }
                 else if(c_gen == null){
                     JOptionPane.showMessageDialog(null, "Please select your Gender");
@@ -384,6 +393,10 @@ public class Regular_Customer_Registration extends javax.swing.JFrame {
                 }
                 */
     }//GEN-LAST:event_jPanel2MouseClicked
+
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+       check="ok";
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -458,5 +471,5 @@ public class Regular_Customer_Registration extends javax.swing.JFrame {
     private javax.swing.JTextField usernametxt;
     private javax.swing.JTextField venotxt;
     // End of variables declaration//GEN-END:variables
-       String gender;
+       String gender,check;
 }
