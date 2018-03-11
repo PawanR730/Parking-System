@@ -462,6 +462,10 @@
               <Color id="Hand Cursor"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jPanel6MouseClicked"/>
+            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jPanel6MouseEntered"/>
+          </Events>
 
           <Layout>
             <DimensionLayout dim="0">
@@ -489,7 +493,7 @@
             <Component class="javax.swing.JLabel" name="jLabel7">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/ppp/Icons/Add User Group Man Man_64px.png"/>
+                  <Image iconType="3" name="/ppp/Icons/Add User Group Man Manwhite_64px.png"/>
                 </Property>
               </Properties>
             </Component>

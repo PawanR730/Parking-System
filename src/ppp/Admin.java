@@ -257,8 +257,16 @@ public class Admin extends javax.swing.JFrame {
         jPanel6.setBackground(new java.awt.Color(44, 62, 80));
         jPanel6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
         jPanel6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel6MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPanel6MouseEntered(evt);
+            }
+        });
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ppp/Icons/Add User Group Man Man_64px.png"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ppp/Icons/Add User Group Man Manwhite_64px.png"))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -364,6 +372,15 @@ public class Admin extends javax.swing.JFrame {
         this.setVisible(false);
         new user().setVisible(true);  // TODO add your handling code here:
     }//GEN-LAST:event_jPanel8MouseClicked
+
+    private void jPanel6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel6MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel6MouseEntered
+
+    private void jPanel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel6MouseClicked
+       this.setVisible(false);
+        new Permission_Admin().setVisible(true);  // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel6MouseClicked
 
     /**
      * @param args the command line arguments

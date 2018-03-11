@@ -2,17 +2,16 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
         <group>
             <file>file:/Z:/Git/projects/Parking-System/src/ppp/Regular_Customer.java</file>
             <file>file:/Z:/Git/projects/Parking-System/src/ppp/user.java</file>
-            <file>file:/Z:/Git/projects/Parking-System/src/ppp/Guest_Customer.java</file>
             <file>file:/Z:/Git/projects/Parking-System/src/ppp/Admin_Login.java</file>
+            <file>file:/Z:/Git/projects/Parking-System/src/ppp/Guest_Customer.java</file>
+            <file>file:/Z:/Git/projects/Parking-System/src/ppp/Permission_Admin.java</file>
+            <file>file:/Z:/Git/projects/Parking-System/src/ppp/Regular_Customer_Registration.java</file>
             <file>file:/Z:/Git/projects/Parking-System/src/ppp/Regular_Customer_login.java</file>
             <file>file:/Z:/Git/projects/Parking-System/src/ppp/Admin.java</file>
+            <file>file:/Z:/Git/projects/Parking-System/src/ppp/Upgrade_Guest.java</file>
         </group>
-=======
-        <group/>
->>>>>>> f343a8371a255574740d5c6896c022bb5c9de2e7
     </open-files>
 </project-private>
