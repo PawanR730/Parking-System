@@ -80,13 +80,15 @@ public class Guest_Customer extends javax.swing.JFrame {
         jLabel7.setText("jLabel7");
 
         jScrollPane1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 3, true));
+        jScrollPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.MOVE_CURSOR));
 
         jTextArea1.setBackground(new java.awt.Color(36, 47, 65));
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("Bookman Old Style", 0, 14)); // NOI18N
         jTextArea1.setForeground(new java.awt.Color(255, 255, 255));
         jTextArea1.setRows(5);
-        jTextArea1.setText("1)There is no guarantee that you will be allotted\na slot,a slot will be given only if there is\navailabilty after filling up the regular customers.\n\n2)If given a slot,you are requested park only in the \nallocated slot.\n\n3)Fares are calculated as 30 min increments.\nSo,the minium time for parking is 30 mins.\n\n4)Look around,any damage to property or humans\n will be your sole responsibility.\n\n5)Please see to it that you do not leave your car\n doors open,any loss is not our responsibility.\n\n6)By clicking on entry,and after allotting a slot\n we assume that you have agreed to all the above terms.\n\n                  HAVE A NICE DAY!\n");
+        jTextArea1.setText("1)There is no guarantee that you will be allotted\na slot,a slot will be given only if there is\navailabilty after filling up the regular customers.\n\n2)If given a slot,you are requested park only in the \nallocated slot.\n\n3)Fares are calculated as 30 min increments.\nSo,the minium time for parking is 30 mins.\n\n4)Look around,any damage to property or humans\n will be your sole responsibility.\n\n5)Please see to it that you do not leave your car\n doors open,any loss is not our responsibility.\n\n6)The admin has authority to fine ,incase parked \ninappropriately.\n\n6)By clicking on entry,and after allotting a slot\n we assume that you have agreed to all the above terms.\n\n                  HAVE A NICE DAY!\n");
+        jTextArea1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jTextArea1.setSelectionColor(new java.awt.Color(0, 204, 204));
         jScrollPane1.setViewportView(jTextArea1);
 

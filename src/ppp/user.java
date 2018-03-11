@@ -271,6 +271,11 @@ public class user extends javax.swing.JFrame {
         jPanel8.setBackground(new java.awt.Color(65, 131, 215));
         jPanel8.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(34, 167, 240), 3, true));
         jPanel8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel8MouseClicked(evt);
+            }
+        });
 
         jLabel11.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
@@ -279,6 +284,11 @@ public class user extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("RULES");
+        jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel12MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -456,6 +466,16 @@ this.setVisible(false);
  this.setVisible(false);
 new Admin_Login().setVisible(true);       // TODO add your handling code here:
     }//GEN-LAST:event_jLabel2MouseClicked
+
+    private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
+this.setVisible(false);
+new Business_Rules().setVisible(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel12MouseClicked
+
+    private void jPanel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel8MouseClicked
+this.setVisible(false);
+new Business_Rules().setVisible(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel8MouseClicked
 
     /**
      * @param args the command line arguments
