@@ -77,7 +77,7 @@ public class Regular_Customer_Registration extends javax.swing.JFrame {
         jLabel1.setBackground(new java.awt.Color(36, 47, 65));
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel1.setForeground(java.awt.Color.white);
-        jLabel1.setText("                 REGISTRATION OF REGULAR CUSTOMER");
+        jLabel1.setText("                      COME! BE OUR REGISTERED CUSTOMER");
         jLabel1.setBorder(new javax.swing.border.LineBorder(java.awt.Color.white, 3, true));
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 660, 52));
 
@@ -310,15 +310,12 @@ public class Regular_Customer_Registration extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 709, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 24, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 733, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 455, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE)
                 .addContainerGap())
         );
 

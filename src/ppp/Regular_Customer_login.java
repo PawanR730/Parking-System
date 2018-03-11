@@ -105,6 +105,11 @@ public class Regular_Customer_login extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(97, 212, 195));
         jPanel3.setBorder(new javax.swing.border.LineBorder(java.awt.Color.white, 2, true));
         jPanel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel3MouseClicked(evt);
+            }
+        });
 
         jLabel5.setBackground(new java.awt.Color(37, 46, 65));
         jLabel5.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -237,6 +242,11 @@ public class Regular_Customer_login extends javax.swing.JFrame {
         this.setVisible(false);
         new user().setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_jPanel4MouseClicked
+
+    private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
+   this.setVisible(false);
+        new Regular_Customer_login().setVisible(true);   // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel3MouseClicked
 
     /**
      * @param args the command line arguments

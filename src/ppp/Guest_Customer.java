@@ -32,6 +32,8 @@ public class Guest_Customer extends javax.swing.JFrame {
         jPanel6 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
@@ -77,6 +79,17 @@ public class Guest_Customer extends javax.swing.JFrame {
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ppp/Icons/giphy-2-.gif"))); // NOI18N
         jLabel7.setText("jLabel7");
 
+        jScrollPane1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 3, true));
+
+        jTextArea1.setBackground(new java.awt.Color(36, 47, 65));
+        jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Bookman Old Style", 0, 14)); // NOI18N
+        jTextArea1.setForeground(new java.awt.Color(255, 255, 255));
+        jTextArea1.setRows(5);
+        jTextArea1.setText("1)There is no guarantee that you will be allotted\na slot,a slot will be given only if there is\navailabilty after filling up the regular customers.\n\n2)If given a slot,you are requested park only in the \nallocated slot.\n\n3)Fares are calculated as 30 min increments.\nSo,the minium time for parking is 30 mins.\n\n4)Look around,any damage to property or humans\n will be your sole responsibility.\n\n5)Please see to it that you do not leave your car\n doors open,any loss is not our responsibility.\n\n6)By clicking on entry,and after allotting a slot\n we assume that you have agreed to all the above terms.\n\n                  HAVE A NICE DAY!\n");
+        jTextArea1.setSelectionColor(new java.awt.Color(0, 204, 204));
+        jScrollPane1.setViewportView(jTextArea1);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -88,8 +101,10 @@ public class Guest_Customer extends javax.swing.JFrame {
                         .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(42, 42, 42)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(90, Short.MAX_VALUE))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -98,10 +113,12 @@ public class Guest_Customer extends javax.swing.JFrame {
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(249, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 0, 510, 520));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 0, 520, 520));
 
         jLabel2.setFont(new java.awt.Font("Bookman Old Style", 1, 18)); // NOI18N
         jLabel2.setForeground(java.awt.Color.white);
@@ -289,5 +306,7 @@ this.setVisible(false);
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }
