@@ -366,8 +366,8 @@ public class Permission_Admin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
-        //this.setVisible(false);
-        //new Regular_Customer_Registration().setVisible(true);        // TODO add your handling code here:
+        this.setVisible(false);
+        new Upgrade_Guest().setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_jPanel4MouseClicked
 
     private void jPanel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel6MouseClicked

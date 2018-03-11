@@ -167,6 +167,7 @@ public class Upgrade_Guest extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(97, 212, 195));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.white, 2));
+        jPanel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPanel2MouseClicked(evt);
@@ -199,6 +200,7 @@ public class Upgrade_Guest extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(97, 212, 195));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.white, 2));
+        jPanel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPanel3MouseClicked(evt);
@@ -230,6 +232,12 @@ public class Upgrade_Guest extends javax.swing.JFrame {
 
         jPanel4.setBackground(new java.awt.Color(97, 212, 195));
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.white, 2));
+        jPanel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel4MouseClicked(evt);
+            }
+        });
 
         jLabel14.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel14.setForeground(java.awt.Color.white);
@@ -398,6 +406,11 @@ public class Upgrade_Guest extends javax.swing.JFrame {
     private void addtxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addtxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_addtxtActionPerformed
+
+    private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
+        this.setVisible(false);
+        new Permission_Admin().setVisible(true);// TODO add your handling code here:
+    }//GEN-LAST:event_jPanel4MouseClicked
 
     /**
      * @param args the command line arguments

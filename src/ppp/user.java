@@ -190,6 +190,7 @@ public class user extends javax.swing.JFrame {
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 0, 300, 450));
 
         jPanel2.setBackground(new java.awt.Color(65, 131, 215));
+        jPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(34, 167, 240), 3, true));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ppp/Icons/Checked User Male_96px.png"))); // NOI18N
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -201,6 +202,11 @@ public class user extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ppp/Icons/Admin Settings Male_96px.png"))); // NOI18N
         jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+        });
 
         jLabel3.setText("jLabel3");
 
@@ -281,7 +287,8 @@ public class user extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel7MouseClicked
 
     private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
-               // TODO add your handling code here:
+this.setVisible(false);
+new Admin_Login().setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_jPanel4MouseClicked
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
@@ -293,6 +300,11 @@ public class user extends javax.swing.JFrame {
 this.setVisible(false); 
            new Guest_Customer().setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_jLabel6MouseClicked
+
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+ this.setVisible(false);
+new Admin_Login().setVisible(true);       // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel2MouseClicked
 
     /**
      * @param args the command line arguments

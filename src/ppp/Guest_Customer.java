@@ -89,6 +89,7 @@ public class Guest_Customer extends javax.swing.JFrame {
 
         jPanel4.setBackground(new java.awt.Color(97, 212, 195));
         jPanel4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(238, 242, 241), 3, true));
+        jPanel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPanel4MouseClicked(evt);
@@ -125,6 +126,7 @@ public class Guest_Customer extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(97, 212, 195));
         jPanel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(238, 242, 241), 3, true));
+        jPanel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel3.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel3.setForeground(java.awt.Color.white);
@@ -151,6 +153,7 @@ public class Guest_Customer extends javax.swing.JFrame {
 
         jPanel5.setBackground(new java.awt.Color(97, 212, 195));
         jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.white, 3));
+        jPanel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPanel5MouseClicked(evt);

@@ -79,6 +79,7 @@ public class Regular_Customer_login extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(97, 212, 195));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.white, 2));
+        jPanel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel4.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel4.setForeground(java.awt.Color.white);
@@ -103,6 +104,7 @@ public class Regular_Customer_login extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(97, 212, 195));
         jPanel3.setBorder(new javax.swing.border.LineBorder(java.awt.Color.white, 2, true));
+        jPanel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel5.setBackground(new java.awt.Color(37, 46, 65));
         jLabel5.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
