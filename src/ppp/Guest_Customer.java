@@ -80,7 +80,7 @@ public class Guest_Customer extends javax.swing.JFrame {
         jLabel7.setText("jLabel7");
 
         jScrollPane1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 3, true));
-        jScrollPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.MOVE_CURSOR));
+        jScrollPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jTextArea1.setBackground(new java.awt.Color(36, 47, 65));
         jTextArea1.setColumns(20);
