@@ -15,11 +15,17 @@ import javax.swing.JOptionPane;
  * @author pawan
  */
 public class Regular_Customer_Registration extends javax.swing.JFrame {
-
+String address,port,user,pass;
     /**
      * Creates new form Regular_Customer_Registration
      */
-    public Regular_Customer_Registration() {
+    public Regular_Customer_Registration(String a,String b,String c,String d) {
+         run();
+        setResizable(false);
+        address = a;
+        port = b;
+        user = c;
+        pass = d;
         initComponents();
     }
 
@@ -178,6 +184,11 @@ public class Regular_Customer_Registration extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel11.setForeground(java.awt.Color.white);
         jLabel11.setText("SUBMIT");
+        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel11MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -233,6 +244,11 @@ public class Regular_Customer_Registration extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(97, 212, 195));
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.white, 2));
         jPanel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel4MouseClicked(evt);
+            }
+        });
 
         jLabel14.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel14.setForeground(java.awt.Color.white);
@@ -366,50 +382,107 @@ public class Regular_Customer_Registration extends javax.swing.JFrame {
                 String c_gen = gender;
                 String c_phone = phnotxt.getText();
                 String c_address = addtxt.getText();
+                String c_rank="General";  /// Rank is general for regular customers
               
                 
                 if("".equals(c_user)){
                     JOptionPane.showMessageDialog(null, "Please enter Username");
+                    this.setVisible(false);
+                    new Regular_Customer_Registration(address,port,user,pass).setVisible(true);
                 }else if("".equals(c_pass)){
                     JOptionPane.showMessageDialog(null, "Please enter Password");
+                    this.setVisible(false);
+                    new Regular_Customer_Registration(address,port,user,pass).setVisible(true);
                 }else if("".equals(c_compass)){
-                    JOptionPane.showMessageDialog(null, "Please enter Comfirm Password");            
+                    JOptionPane.showMessageDialog(null, "Please enter Comfirm Password"); 
+                    this.setVisible(false);
+                    new Regular_Customer_Registration(address,port,user,pass).setVisible(true);
                 }else if("".equals(c_name)){
                     JOptionPane.showMessageDialog(null, "Please enter your Full Name");
+                    this.setVisible(false);
+                    new Regular_Customer_Registration(address,port,user,pass).setVisible(true);
                 }
                 else if(c_check==null)
                 {
                   JOptionPane.showMessageDialog(null, "Please agree to the terms of service");  
+                  this.setVisible(false);
+                    new Regular_Customer_Registration(address,port,user,pass).setVisible(true);
+                  
                 }
                 else if(c_gen == null){
                     JOptionPane.showMessageDialog(null, "Please select your Gender");
+                    this.setVisible(false);
+                    new Regular_Customer_Registration(address,port,user,pass).setVisible(true);
                 }else if("".equals(c_phone)){
                     JOptionPane.showMessageDialog(null, "Please enter your Phone Number");
+                    this.setVisible(false);
+                    new Regular_Customer_Registration(address,port,user,pass).setVisible(true);
                 }else if("".equals(c_address)){
                     JOptionPane.showMessageDialog(null, "Please enter the Address");
+                    this.setVisible(false);
+                    new Regular_Customer_Registration(address,port,user,pass).setVisible(true);
                 }
                 else if(!c_pass.equals(c_compass)){
                     JOptionPane.showMessageDialog(null, "Password not match");
+                    this.setVisible(false);
+                    new Regular_Customer_Registration(address,port,user,pass).setVisible(true);
                 }
-                /*else{
-                new loginforadd(address,port,user,pass,c_user,c_pass,c_compass,c_name,c_age,c_gen,c_phone,c_address,c_rank).setVisible(true);
+                else{
+                     Connection c;    SQLCONNECTION_NEW MyCon;
+                    Statement stmt;  String SQL;
+                    Connection theConn = null;
+                    try {
+                
+                MyCon = new SQLCONNECTION_NEW(address,port,user,pass);
+                theConn = MyCon.getConnection("Software_Parking_Project");
+                stmt = theConn.createStatement();
+                SQL = "insert into Regular (user,password,name,gender,phone,address,rank) values "
+                        + "('" + c_user + "','" + c_pass + "','"+ c_name +"','" + c_gen + "','"+ c_phone +"','" + c_address +"','" + c_rank + "')";  
+                stmt.executeUpdate(SQL);
+                JOptionPane.showMessageDialog(null, "Adding Successful");
+                new Regular_Customer(address,port,user,pass).setVisible(true);
+                setVisible(false);
+                
                 }
-                */
+                    catch(SQLException ex) {
+                     JOptionPane.showMessageDialog(null, ex);
+                }
+                    finally {
+                    try {
+                            if (theConn != null) theConn.close();
+                        }
+                             catch (Exception e) {
+                                 
+                 }
+               }
+               
+                }        
     }//GEN-LAST:event_jPanel2MouseClicked
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
        check="ok";
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
+    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
+       
+        
+    }//GEN-LAST:event_jLabel11MouseClicked
+
+    private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
+       this.setVisible(false);
+                    new user(address,port,user,pass).setVisible(true);
+    }//GEN-LAST:event_jPanel4MouseClicked
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    //public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
+       private void run(){
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -417,24 +490,19 @@ public class Regular_Customer_Registration extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Regular_Customer_Registration.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Regular_Customer_Registration.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Regular_Customer_Registration.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Regular_Customer_Registration.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Regular_Customer_Registration().setVisible(true);
-            }
-        });
-    }
+       // java.awt.EventQueue.invokeLater(new Runnable() {
+            //public void run() {
+            //    new Regular_Customer_Registration().setVisible(true);
+            ///}
+       // });
+    //}
+       }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField addtxt;
