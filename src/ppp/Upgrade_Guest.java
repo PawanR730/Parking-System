@@ -19,7 +19,16 @@ public class Upgrade_Guest extends javax.swing.JFrame {
     /**
      * Creates new form Upgrade_Guest
      */
-    public Upgrade_Guest() {
+     String address,port,user,pass;
+    public Upgrade_Guest(String a,String b,String c,String d) {
+         run();
+        
+        setTitle("Upgrade to Regular customer");
+        address = a;
+        port = b;
+        user = c;
+        pass = d;
+        setResizable(false);
         initComponents();
     }
 
@@ -409,18 +418,19 @@ public class Upgrade_Guest extends javax.swing.JFrame {
 
     private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
         this.setVisible(false);
-        new Permission_Admin().setVisible(true);// TODO add your handling code here:
+        new Permission_Admin(address,port,user,pass).setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_jPanel4MouseClicked
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+   // public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
+        private void run(){
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -428,24 +438,19 @@ public class Upgrade_Guest extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Upgrade_Guest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Upgrade_Guest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Upgrade_Guest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Upgrade_Guest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+          }
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Upgrade_Guest().setVisible(true);
-            }
-        });
-    }
+        //java.awt.EventQueue.invokeLater(new Runnable() {
+            //public void run() {
+                //new Upgrade_Guest().setVisible(true);
+            //}
+       // });
+   // }
 String gender,check;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField addtxt;

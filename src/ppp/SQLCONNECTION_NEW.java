@@ -15,6 +15,7 @@ public class SQLCONNECTION_NEW {
        port=b;
        user=c;
        pass=d;
+       
    }
     public Connection getConnection(String fn) {
     try {
