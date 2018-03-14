@@ -5,6 +5,16 @@
  */
 package ppp;
 
+import java.awt.HeadlessException;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author pawan
@@ -14,14 +24,15 @@ public class Regular_Customer extends javax.swing.JFrame {
     /**
      * Creates new form Regular_Customer
      */
-    String user,pass,port,address;
-    public Regular_Customer(String a,String b,String c,String d ) {
+    String user,pass,port,address,vehi;
+    public Regular_Customer(String a,String b,String c,String d,String v ) {
         run();
         setTitle("Regular Customer Homepage");
         address = a;
         port = b;
         user = c;
         pass = d;
+        vehi=v;
         setResizable(false);
         initComponents();
     }
@@ -116,6 +127,11 @@ public class Regular_Customer extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(97, 212, 195));
         jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(238, 242, 241), 3, true));
         jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel1MouseClicked(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel3.setForeground(java.awt.Color.white);
@@ -348,7 +364,45 @@ public class Regular_Customer extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
-        // TODO add your handling code here:
+        
+        
+        Date d = new Date(System.currentTimeMillis());
+        String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
+        
+        Connection theConn; String SQL;
+        String x1 = null;
+        try{
+                    SQLCONNECTION_NEW MyCon = new SQLCONNECTION_NEW(address,port,user,pass);
+                    theConn = MyCon.getConnection("Software_Parking_Project");
+                    Statement stmt = theConn.createStatement();    
+                    SQL = "select * from Regular where Vehicle='" + vehi + "'"; 
+                    ResultSet rs = stmt.executeQuery(SQL);
+                    
+                    while(rs.next()){
+                        x1 = rs.getString("Vehicle");
+                    
+                    }
+        }catch( HeadlessException | SQLException e){
+            JOptionPane.showMessageDialog(null, e);
+        }       
+        
+        if(!vehi.equals(x1)){
+            JOptionPane.showMessageDialog(null, "The car not found or not a member yet!");
+        }else{
+            try {
+       SQLCONNECTION_NEW  MyCon = new  SQLCONNECTION_NEW(address,port,user,pass);
+      theConn = MyCon.getConnection("Software_Parking_Project");
+      Statement stmt = theConn.createStatement();
+      SQL = "insert into Timetable (In_time,Date,Vehicle) values "
+              + "('" + timeStamp + "','"+ d +"','" +vehi + "')";  
+      stmt.executeUpdate(SQL); 
+        JOptionPane.showMessageDialog(null, "Car Checked In");
+        //getfordb();
+    }
+    catch (SQLException ex) {
+      JOptionPane.showMessageDialog(null, ex);
+    }
+        }
     }//GEN-LAST:event_jPanel4MouseClicked
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
@@ -359,6 +413,52 @@ public class Regular_Customer extends javax.swing.JFrame {
        this.setVisible(false);
         new user(address,port,user,pass).setVisible(true);  // TODO add your handling code here:
     }//GEN-LAST:event_jPanel5MouseClicked
+
+    private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
+       
+        //String check_out = C_out.getText();
+        Date d = new Date(System.currentTimeMillis());
+        String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
+        
+        Connection theConn; String SQL;
+        String x1 = null;
+        try{
+                     SQLCONNECTION_NEW   MyCon = new  SQLCONNECTION_NEW (address,port,user,pass);
+                    theConn = MyCon.getConnection("Software_Parking_Project");
+                    Statement stmt = theConn.createStatement();    
+                    SQL = "select * from Timetable where Vehicle='" + vehi + "'"; 
+                    ResultSet rs = stmt.executeQuery(SQL);
+                    
+                    while(rs.next()){
+                        x1 = rs.getString("Vehicle");
+                        
+                    
+                    }
+        }catch( HeadlessException | SQLException e){
+            JOptionPane.showMessageDialog(null, e);
+        }       
+        
+        if(!vehi.equals(x1)){
+            JOptionPane.showMessageDialog(null, "Car is not parked!");
+        }else{
+            try {
+      SQLCONNECTION_NEW MyCon = new  SQLCONNECTION_NEW(address,port,user,pass);
+      theConn = MyCon.getConnection("Software_Parking_Project");
+      Statement stmt = theConn.createStatement();
+      SQL="update Timetable set Out_time='"+timeStamp+"' where Vehicle='"+vehi+"'";
+      //SQL = "insert into Timetable (Out_time,Date,Vehicle) values "
+           //   + "('" + timeStamp + "','"+ d +"','" + vehi + "')";  
+      stmt.executeUpdate(SQL); 
+        JOptionPane.showMessageDialog(null, "Car Checked Out "+ timeStamp);
+        //getfordb();
+        
+    }
+    catch (SQLException ex) {
+      JOptionPane.showMessageDialog(null, ex);
+    }
+        }
+        
+    }//GEN-LAST:event_jPanel1MouseClicked
 
     /**
      * @param args the command line arguments

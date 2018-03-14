@@ -156,6 +156,7 @@ public class Main extends javax.swing.JFrame {
         SQLCONNECTION_NEW MyCon = new SQLCONNECTION_NEW(m1,m2,m3,m4);
          MyCon.CreateDB("Software_Parking_Project");
          SQLCreateRegular t3 = new SQLCreateRegular("Regular", m1, m2, m3, m4);
+         SQLCreateTimetable t2 = new SQLCreateTimetable("Timetable",m1,m2,m3,m4);
           String check = null;
           if(found){
             try {

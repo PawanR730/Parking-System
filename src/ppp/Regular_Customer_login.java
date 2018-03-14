@@ -275,7 +275,7 @@ public class Regular_Customer_login extends javax.swing.JFrame {
                 String g_user = usertxt.getText();
         String g_pass = passtxt.getText();
         
-        String x1 = null,x2 = null,x3 = null,x4 = null;
+        String x1 = null,x2 = null,x3 = null,x4 = null,x5 = null;
         
         if("".equals(g_user)){
             JOptionPane.showMessageDialog(null, "Please enter Username");
@@ -295,10 +295,11 @@ public class Regular_Customer_login extends javax.swing.JFrame {
         x2 = rs.getString("password");
         x3 = rs.getString("name");
         x4 = rs.getString("rank");
+        x5=rs.getString("Vehicle");
       }
       if(g_user.equals(x1) && g_pass.equals(x2)){
           JOptionPane.showMessageDialog(null, "Login Complete\n\nWelcome "+ x3 +" !");
-          new Regular_Customer(address,port,user,pass).setVisible(true);
+          new Regular_Customer(address,port,user,pass,x5).setVisible(true);
           dispose();
       }else{
           JOptionPane.showMessageDialog(null, "Login Incorect\nPlease check your User and Password");

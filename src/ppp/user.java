@@ -468,7 +468,9 @@ String address,port,user,pass;
     }// </editor-fold>//GEN-END:initComponents
 
     private void jPanel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel5MouseClicked
-           this.setVisible(false); 
+           
+        
+        this.setVisible(false); 
             new Regular_Customer_login(address,port,user,pass).setVisible(true);
     }//GEN-LAST:event_jPanel5MouseClicked
 
@@ -484,6 +486,7 @@ new Admin_Login(address,port,user,pass).setVisible(true);// TODO add your handli
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
         this.setVisible(false); 
+        
             new Regular_Customer_login(address,port,user,pass).setVisible(true);;// TODO add your handling code here:
     }//GEN-LAST:event_jLabel1MouseClicked
 

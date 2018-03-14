@@ -382,7 +382,8 @@ String address,port,user,pass;
                 String c_gen = gender;
                 String c_phone = phnotxt.getText();
                 String c_address = addtxt.getText();
-                String c_rank="General";  /// Rank is general for regular customers
+                String c_rank="General"; 
+                String c_vehi=venotxt.getText();/// Rank is general for regular customers
               
                 
                 if("".equals(c_user)){
@@ -409,6 +410,12 @@ String address,port,user,pass;
                     new Regular_Customer_Registration(address,port,user,pass).setVisible(true);
                   
                 }
+                else if(c_vehi==null)
+                        {
+                          JOptionPane.showMessageDialog(null, "Please select your Vehicle Number");
+                    this.setVisible(false);
+                    new Regular_Customer_Registration(address,port,user,pass).setVisible(true);  
+                        }
                 else if(c_gen == null){
                     JOptionPane.showMessageDialog(null, "Please select your Gender");
                     this.setVisible(false);
@@ -436,11 +443,11 @@ String address,port,user,pass;
                 MyCon = new SQLCONNECTION_NEW(address,port,user,pass);
                 theConn = MyCon.getConnection("Software_Parking_Project");
                 stmt = theConn.createStatement();
-                SQL = "insert into Regular (user,password,name,gender,phone,address,rank) values "
-                        + "('" + c_user + "','" + c_pass + "','"+ c_name +"','" + c_gen + "','"+ c_phone +"','" + c_address +"','" + c_rank + "')";  
+                SQL = "insert into Regular (user,password,name,gender,phone,address,rank,Vehicle) values "
+                        + "('" + c_user + "','" + c_pass + "','"+ c_name +"','" + c_gen + "','"+ c_phone +"','" + c_address +"','" + c_rank + "','" +c_vehi+"')";  
                 stmt.executeUpdate(SQL);
                 JOptionPane.showMessageDialog(null, "Adding Successful");
-                new Regular_Customer(address,port,user,pass).setVisible(true);
+                new Regular_Customer(address,port,user,pass,c_vehi).setVisible(true);
                 setVisible(false);
                 
                 }
