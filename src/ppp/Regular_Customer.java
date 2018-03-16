@@ -396,6 +396,7 @@ public class Regular_Customer extends javax.swing.JFrame {
                     
                     while(rs.next()){
                         x1 = rs.getString("Vehicle");
+                        x7 = rs.getString("name");
                     
                     }
         }catch( HeadlessException | SQLException e){
@@ -409,8 +410,8 @@ public class Regular_Customer extends javax.swing.JFrame {
        SQLCONNECTION_NEW  MyCon = new  SQLCONNECTION_NEW(address,port,user,pass);
       theConn = MyCon.getConnection("Software_Parking_Project");
       Statement stmt = theConn.createStatement();
-      SQL = "insert into Timetable (Time_in,Date,Vehicle) values "
-              + "('" + sqlTimestamp + "','"+ d +"','" +vehi + "')";  
+      SQL = "insert into Timetable (Time_in,Date,Vehicle,name) values "
+              + "('" + sqlTimestamp + "','"+ d +"','" +vehi + "','"+x7+"')";  
       stmt.executeUpdate(SQL); 
         JOptionPane.showMessageDialog(null, "Car Checked In");
         //getfordb();
@@ -595,6 +596,6 @@ public class Regular_Customer extends javax.swing.JFrame {
     private java.awt.Label label1;
     private java.awt.Label label2;
     // End of variables declaration//GEN-END:variables
-String x1 = null,x2=null,x3=null,x4=null,x5=null;
+String x1 = null,x2=null,x3=null,x4=null,x5=null,x7=null;
 Time t1,t2;
 }
