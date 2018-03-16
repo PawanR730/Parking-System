@@ -379,8 +379,11 @@ public class Regular_Customer extends javax.swing.JFrame {
     private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
         
         
-         Date d = new Date(System.currentTimeMillis());
-        String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
+       Date d = new Date(System.currentTimeMillis());
+        ///String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
+         java.util.Date date = new java.util.Date();
+      long t = date.getTime();
+      java.sql.Timestamp sqlTimestamp = new java.sql.Timestamp(t);
       
         Connection theConn; String SQL;
         String x1 = null;
@@ -406,8 +409,8 @@ public class Regular_Customer extends javax.swing.JFrame {
        SQLCONNECTION_NEW  MyCon = new  SQLCONNECTION_NEW(address,port,user,pass);
       theConn = MyCon.getConnection("Software_Parking_Project");
       Statement stmt = theConn.createStatement();
-      SQL = "insert into Timetable (In_time,Date,Vehicle) values "
-              + "('" + timeStamp + "','"+ d +"','" +vehi + "')";  
+      SQL = "insert into Timetable (Time_in,Date,Vehicle) values "
+              + "('" + sqlTimestamp + "','"+ d +"','" +vehi + "')";  
       stmt.executeUpdate(SQL); 
         JOptionPane.showMessageDialog(null, "Car Checked In");
         //getfordb();
@@ -431,7 +434,11 @@ public class Regular_Customer extends javax.swing.JFrame {
        
         //String check_out = C_out.getText();
         Date d = new Date(System.currentTimeMillis());
-        String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
+        //String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
+        java.util.Date date = new java.util.Date();
+      long t = date.getTime();
+      java.sql.Timestamp sqlTimestamp = new java.sql.Timestamp(t);
+      
         
         Connection theConn; String SQL;
         
@@ -460,11 +467,11 @@ public class Regular_Customer extends javax.swing.JFrame {
       SQLCONNECTION_NEW MyCon = new  SQLCONNECTION_NEW(address,port,user,pass);
       theConn = MyCon.getConnection("Software_Parking_Project");
       Statement stmt = theConn.createStatement();
-      SQL="update Timetable set Out_time='"+timeStamp+"' where Vehicle='"+vehi+"'";
+      SQL="update Timetable set Time_out='"+sqlTimestamp+"' where Vehicle='"+vehi+"'";
       //SQL = "insert into Timetable (Out_time,Date,Vehicle) values "
            //   + "('" + timeStamp + "','"+ d +"','" + vehi + "')";  
       stmt.executeUpdate(SQL); 
-        JOptionPane.showMessageDialog(null, "Car Checked Out "+ timeStamp+"and your id is " +x2);
+        JOptionPane.showMessageDialog(null, "Car Checked Out "+ sqlTimestamp+"and your id is " +x2);
         //getfordb();
         
     }
@@ -476,7 +483,7 @@ public class Regular_Customer extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel1MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       
+       /*
         java.util.Date date = new java.util.Date();
       long t = date.getTime();
       java.sql.Date sqlDate = new java.sql.Date(t);
@@ -485,7 +492,9 @@ public class Regular_Customer extends javax.swing.JFrame {
       System.out.println("sqlDate=" + sqlDate);
       System.out.println("sqlTime=" + sqlTime);
       System.out.println("sqlTimestamp=" + sqlTimestamp);
-        /*
+        */
+       java.sql.Timestamp in = null,out = null;
+        
         Connection theConn = null; String SQL; 
     
     try {
@@ -496,16 +505,21 @@ public class Regular_Customer extends javax.swing.JFrame {
       ResultSet rs = stmt.executeQuery(SQL);  
      
       while (rs.next()) {
-        t1=rs.getTime("In_time");
-         t2=rs.getTime("Out_time");
+        in=rs.getTimestamp("Time_in");
+         out=rs.getTimestamp("Time_out");
         
         
       }
-      long c=t2.getTime()-t1.getTime();
+        long milliseconds1 = in.getTime();
+  long milliseconds2 = out.getTime();
+       long diff=milliseconds2-milliseconds1;
+
+     long diffSeconds = diff / 1000;
+  long diffMinutes = diff / (60 * 1000);
+  long diffHours = diff / (60 * 60 * 1000);
+  long diffDays = diff / (24 * 60 * 60 * 1000);
       
-      Time diff=new Time(c);
-      
-      System.out.println(diff);
+      System.out.println(diffSeconds);
       
       
     }
@@ -520,7 +534,7 @@ public class Regular_Customer extends javax.swing.JFrame {
       }
     }
         
-        */
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
