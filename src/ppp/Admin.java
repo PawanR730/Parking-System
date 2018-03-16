@@ -148,6 +148,11 @@ public class Admin extends javax.swing.JFrame {
 
         jPanel7.setBackground(new java.awt.Color(97, 212, 195));
         jPanel7.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 3, true));
+        jPanel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel7MouseClicked(evt);
+            }
+        });
 
         jLabel11.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
@@ -391,6 +396,12 @@ public class Admin extends javax.swing.JFrame {
        this.setVisible(false);
         new Permission_Admin(address,port,user,pass).setVisible(true);  // TODO add your handling code here:
     }//GEN-LAST:event_jPanel6MouseClicked
+
+    private void jPanel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseClicked
+
+       new RegularDBinfo(address,port,user,pass).setVisible(true);
+       dispose();
+    }//GEN-LAST:event_jPanel7MouseClicked
 
     /**
      * @param args the command line arguments

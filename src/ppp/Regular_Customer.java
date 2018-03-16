@@ -6,14 +6,18 @@
 package ppp;
 
 import java.awt.HeadlessException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
+import java.time.Clock;
+
 
 /**
  *
@@ -55,6 +59,7 @@ public class Regular_Customer extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
@@ -188,6 +193,14 @@ public class Regular_Customer extends javax.swing.JFrame {
         );
 
         jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, 240, 70));
+
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 440, -1, -1));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, 490));
 
@@ -366,9 +379,9 @@ public class Regular_Customer extends javax.swing.JFrame {
     private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
         
         
-        Date d = new Date(System.currentTimeMillis());
+         Date d = new Date(System.currentTimeMillis());
         String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
-        
+      
         Connection theConn; String SQL;
         String x1 = null;
         try{
@@ -421,7 +434,7 @@ public class Regular_Customer extends javax.swing.JFrame {
         String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
         
         Connection theConn; String SQL;
-        String x1 = null;
+        
         try{
                      SQLCONNECTION_NEW   MyCon = new  SQLCONNECTION_NEW (address,port,user,pass);
                     theConn = MyCon.getConnection("Software_Parking_Project");
@@ -431,6 +444,8 @@ public class Regular_Customer extends javax.swing.JFrame {
                     
                     while(rs.next()){
                         x1 = rs.getString("Vehicle");
+                        x2=rs.getString("id");
+                        
                         
                     
                     }
@@ -449,7 +464,7 @@ public class Regular_Customer extends javax.swing.JFrame {
       //SQL = "insert into Timetable (Out_time,Date,Vehicle) values "
            //   + "('" + timeStamp + "','"+ d +"','" + vehi + "')";  
       stmt.executeUpdate(SQL); 
-        JOptionPane.showMessageDialog(null, "Car Checked Out "+ timeStamp);
+        JOptionPane.showMessageDialog(null, "Car Checked Out "+ timeStamp+"and your id is " +x2);
         //getfordb();
         
     }
@@ -459,6 +474,54 @@ public class Regular_Customer extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_jPanel1MouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       
+        java.util.Date date = new java.util.Date();
+      long t = date.getTime();
+      java.sql.Date sqlDate = new java.sql.Date(t);
+      java.sql.Time sqlTime = new java.sql.Time(t);
+      java.sql.Timestamp sqlTimestamp = new java.sql.Timestamp(t);
+      System.out.println("sqlDate=" + sqlDate);
+      System.out.println("sqlTime=" + sqlTime);
+      System.out.println("sqlTimestamp=" + sqlTimestamp);
+        /*
+        Connection theConn = null; String SQL; 
+    
+    try {
+      SQLCONNECTION_NEW  MyCon = new  SQLCONNECTION_NEW(address,port,user,pass);
+      theConn = MyCon.getConnection("Software_Parking_Project");
+      Statement stmt = theConn.createStatement();
+      SQL = "select * from Timetable where id = '" +x2+ "'";      
+      ResultSet rs = stmt.executeQuery(SQL);  
+     
+      while (rs.next()) {
+        t1=rs.getTime("In_time");
+         t2=rs.getTime("Out_time");
+        
+        
+      }
+      long c=t2.getTime()-t1.getTime();
+      
+      Time diff=new Time(c);
+      
+      System.out.println(diff);
+      
+      
+    }
+    catch (SQLException ex) {
+      JOptionPane.showMessageDialog(null,ex);
+    }
+    finally {
+      try {
+        if (theConn != null) theConn.close();       
+      }
+      catch (SQLException e) {
+      }
+    }
+        
+        */
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -492,6 +555,7 @@ public class Regular_Customer extends javax.swing.JFrame {
    // }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -517,4 +581,6 @@ public class Regular_Customer extends javax.swing.JFrame {
     private java.awt.Label label1;
     private java.awt.Label label2;
     // End of variables declaration//GEN-END:variables
+String x1 = null,x2=null,x3=null,x4=null,x5=null;
+Time t1,t2;
 }

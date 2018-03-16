@@ -266,8 +266,10 @@ public class Regular_Customer_login extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel4MouseClicked
 
     private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
-   this.setVisible(false);
-        new Regular_Customer_login(address,port,user,pass).setVisible(true);   // TODO add your handling code here:
+   usertxt.setText(null);
+        passtxt.setText(null);
+        //this.setVisible(false);
+        //new Regular_Customer_login(address,port,user,pass).setVisible(true);   // TODO add your handling code here:
     }//GEN-LAST:event_jPanel3MouseClicked
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
