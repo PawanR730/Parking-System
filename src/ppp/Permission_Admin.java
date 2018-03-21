@@ -75,6 +75,11 @@ public class Permission_Admin extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(68, 108, 179), 3, true));
         jPanel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel3MouseClicked(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
 
@@ -201,7 +206,7 @@ public class Permission_Admin extends javax.swing.JFrame {
                             .addComponent(jLabel10))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel11)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
@@ -331,7 +336,7 @@ public class Permission_Admin extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(2, 2, 2)))
                 .addGap(18, 18, 18)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -385,6 +390,12 @@ public class Permission_Admin extends javax.swing.JFrame {
         this.setVisible(false);
         new Admin(address,port,user,pass).setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_jPanel6MouseClicked
+
+    private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
+        this.setVisible(false);
+        new DeleteRegular(address,port,user,pass).setVisible(true);
+       
+    }//GEN-LAST:event_jPanel3MouseClicked
 
     /**
      * @param args the command line arguments
