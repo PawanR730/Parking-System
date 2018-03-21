@@ -5,6 +5,8 @@
  */
 package ppp;
 
+import ppp.user;
+
 /**
  *
  * @author Ramya B
@@ -181,6 +183,11 @@ public class Guest_Customer extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(97, 212, 195));
         jPanel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(238, 242, 241), 3, true));
         jPanel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel3MouseClicked(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel3.setForeground(java.awt.Color.white);
@@ -242,9 +249,7 @@ public class Guest_Customer extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -261,13 +266,19 @@ public class Guest_Customer extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
-        // TODO add your handling code here:
+        this.setVisible(false);
+        new On_entry_guest(address,port,user,pass).setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_jPanel4MouseClicked
 
     private void jPanel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel5MouseClicked
 this.setVisible(false);
         new user(address,port,user,pass).setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_jPanel5MouseClicked
+
+    private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
+       this.setVisible(false);
+        new exit_guest(address,port,user,pass).setVisible(true); // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel3MouseClicked
 
     /**
      * @param args the command line arguments
