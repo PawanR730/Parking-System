@@ -78,6 +78,7 @@ String address,port,user,pass;
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         drvlictxt = new javax.swing.JTextField();
+        drvlic = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -103,7 +104,6 @@ String address,port,user,pass;
         jPanel1.setForeground(new java.awt.Color(0, 153, 51));
 
         jPanel2.setBackground(new java.awt.Color(36, 47, 65));
-        jPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 3, true));
 
         jPanel4.setBackground(new java.awt.Color(44, 62, 80));
         jPanel4.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 255, 255)), new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true)));
@@ -134,6 +134,11 @@ String address,port,user,pass;
         jLabel5.setText("CHOOSE AN IDENTITY TYPE");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PAN CARD", "ID CARD", "AADHAR CARD", "VEHICLE DOCUMENTS", " " }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         jLabel8.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel8.setForeground(java.awt.Color.white);
@@ -162,10 +167,10 @@ String address,port,user,pass;
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -248,6 +253,15 @@ String address,port,user,pass;
             }
         });
 
+        drvlic.setBackground(new java.awt.Color(36, 47, 65));
+        drvlic.setForeground(java.awt.Color.white);
+        drvlic.setBorder(null);
+        drvlic.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                drvlicActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -256,7 +270,7 @@ String address,port,user,pass;
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -266,18 +280,20 @@ String address,port,user,pass;
                                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(drvlictxt, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(38, 38, 38)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addComponent(drvlic, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(drvlictxt, javax.swing.GroupLayout.DEFAULT_SIZE, 6, Short.MAX_VALUE))
+                                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(30, Short.MAX_VALUE))
+                        .addGap(44, 44, 44)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -286,12 +302,14 @@ String address,port,user,pass;
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 5, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(drvlictxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(drvlic, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(8, 8, 8)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 5, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(51, 51, 51)
@@ -416,9 +434,8 @@ String address,port,user,pass;
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jSeparator9, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(addtxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)))
-                .addGap(18, 18, 18)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -489,7 +506,7 @@ String address,port,user,pass;
         String c_address = addtxt.getText();
         String c_rank="General";
         String c_vehi=venotxt.getText();/// Rank is general for regular customers
-        String c_drvlic=drvlictxt.getText();
+        String c_drvlic=drvlic.getText();
         if("".equals(c_name)){
             JOptionPane.showMessageDialog(null, "Please enter your Full Name");
             this.setVisible(false);
@@ -515,7 +532,11 @@ String address,port,user,pass;
             this.setVisible(false);
             new On_entry_guest(address,port,user,pass).setVisible(true);
         }
-
+else if("".equals(c_drvlic)){
+            JOptionPane.showMessageDialog(null, "Please enter the Driving License Number");
+            this.setVisible(false);
+            new On_entry_guest(address,port,user,pass).setVisible(true);
+        }
         else{
             Connection c;    SQLCONNECTION_NEW MyCon;
             Statement stmt;  String SQL;
@@ -531,10 +552,12 @@ String address,port,user,pass;
       long t = date.getTime();
       java.sql.Timestamp sqlTimestamp = new java.sql.Timestamp(t);
       
-                SQL = "insert into Guest (name,gender,phone,address,rank,Vehicle,drvlic,Time_in,Date) values "
-                + "('" + c_name +"','" + c_gen + "','"+ c_phone +"','" + c_address +"','" + c_rank + "','" +c_vehi+ "','" +c_drvlic+ "','"  + sqlTimestamp + "','"+ d + "')";
+                SQL = "insert into Guest (name,gender,phone,address,rank,Vehicle,License,Time_in) values "
+                + "('" + c_name +"','" + c_gen + "','"+ c_phone +"','" + c_address +"','" + c_rank + "','" +c_vehi+ "','" +c_drvlic+ "','"  + sqlTimestamp +  "')";
                 stmt.executeUpdate(SQL);
                 JOptionPane.showMessageDialog(null, "Adding Successful");
+                this.setVisible(false);
+        new Guest_Customer(address,port,user,pass).setVisible(true);
                 //new Regular_Customer(address,port,user,pass,c_vehi).setVisible(true);
                 //setVisible(false);
 
@@ -599,6 +622,14 @@ String address,port,user,pass;
         // TODO add your handling code here:
     }//GEN-LAST:event_drvlictxtActionPerformed
 
+    private void drvlicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drvlicActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_drvlicActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -615,6 +646,7 @@ String address,port,user,pass;
         }}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField addtxt;
+    private javax.swing.JTextField drvlic;
     private javax.swing.JTextField drvlictxt;
     private javax.swing.JTextField fullnametxt;
     private javax.swing.JComboBox<String> jComboBox1;

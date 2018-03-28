@@ -4,20 +4,18 @@
  * and open the template in the editor.
  */
 package ppp;
-
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
-
 /**
  *
- * @author pawan
+ * @author Ramya B
  */
-public class SQLCreateGuest {
-     public SQLCreateGuest(String tname,String a,String b,String f,String d) {
+public class SQLCreateFare {
+    public SQLCreateFare(String tname,String a,String b,String f,String d) {
     
     Connection c;    SQLCONNECTION_NEW MyCon;
     Statement stmt;  String SQL="";
@@ -36,15 +34,15 @@ public class SQLCreateGuest {
       }
       stmt = c.createStatement();
       if (!found) {
-        if (tname.equals("Guest")) {
-              SQL = "create table Guest (id INTEGER not null auto_increment,name varchar(30),"
-                  + "gender varchar(10),phone varchar(20),Address varchar(80),Rank varchar(20),Vehicle varchar(10),License varchar(80),primary key (id),Time_in TIMESTAMP,Time_out TIMESTAMP)"+"";
+        if (tname.equals("Fares")) {
+              SQL = "create table Fare (id INT AUTO_INCREMENT primary key NOT NULL,"
+                  + "monthly_fare INT not NULL,daily_fare INT not NULL,mtax DECIMAL(9,3) not NULL,dtax DECIMAL(9,3)not NULL,Time TIMESTAMP)"+"";
   
-        }//name,gender,phone,address,rank,Vehicle,drvlic,Time_in,Date
+        }
         stmt.executeUpdate(SQL);
         md = c.getMetaData();
         rs = md.getTables(null, null, "%", null);
-        msg = "Table >>> ";
+        msg = "Table Fare>>> ";
         while (rs.next()) {
           if (rs.getString(3).equals(tname)) {
               msg = msg+rs.getString(3).toUpperCase();

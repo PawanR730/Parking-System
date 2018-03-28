@@ -10,6 +10,44 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+import ppp.SQLCONNECTION_NEW;
+import ppp.user;
+import java.text.DecimalFormat;
+import java.awt.HeadlessException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.Time;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import javax.swing.JOptionPane;
+import java.time.Clock;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+import ppp.SQLCONNECTION_NEW;
+import ppp.user;
+import java.text.DecimalFormat;
+import java.awt.HeadlessException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.Time;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import javax.swing.JOptionPane;
+import java.time.Clock;
 /**
  *
  * @author pawan
@@ -207,7 +245,7 @@ String address,port,user,pass;
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 370, -1, 40));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 400, -1, 40));
 
         jPanel3.setBackground(new java.awt.Color(97, 212, 195));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.white, 2));
@@ -239,7 +277,7 @@ String address,port,user,pass;
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 370, -1, 40));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 400, -1, 40));
 
         jPanel4.setBackground(new java.awt.Color(97, 212, 195));
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.white, 2));
@@ -275,7 +313,7 @@ String address,port,user,pass;
                 .addGap(18, 18, 18))
         );
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 370, 90, 40));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 400, 90, 40));
 
         fullnametxt.setBackground(new java.awt.Color(36, 47, 65));
         fullnametxt.setForeground(java.awt.Color.white);
@@ -435,7 +473,9 @@ String address,port,user,pass;
                     new Regular_Customer_Registration(address,port,user,pass).setVisible(true);
                 }
                 else{
-                     Connection c;    SQLCONNECTION_NEW MyCon;
+                    this.setVisible(false);
+                    new Adminpermtoregular(address,port,user,pass).setVisible(true); 
+                    Connection c;    SQLCONNECTION_NEW MyCon;
                     Statement stmt;  String SQL;
                     Connection theConn = null;
                     try {
@@ -443,8 +483,13 @@ String address,port,user,pass;
                 MyCon = new SQLCONNECTION_NEW(address,port,user,pass);
                 theConn = MyCon.getConnection("Software_Parking_Project");
                 stmt = theConn.createStatement();
-                SQL = "insert into Regular (user,password,name,gender,phone,address,rank,Vehicle) values "
-                        + "('" + c_user + "','" + c_pass + "','"+ c_name +"','" + c_gen + "','"+ c_phone +"','" + c_address +"','" + c_rank + "','" +c_vehi+"')";  
+                java.util.Date date = new java.util.Date();
+      long t = date.getTime();
+      java.sql.Timestamp sqlTimestamp = new java.sql.Timestamp(t);
+                SQL = "insert into Regular (user,password,name,gender,phone,address,rank,Vehicle,Time) values "
+                        + "('" + c_user + "','" + c_pass + "','"+ c_name +"','" + c_gen + "','"+ c_phone +"','" + c_address +"','" + c_rank + "','" +c_vehi+"','" +sqlTimestamp+"')";  
+                
+                
                 stmt.executeUpdate(SQL);
                 JOptionPane.showMessageDialog(null, "Adding Successful");
                 new Regular_Customer(address,port,user,pass,c_vehi).setVisible(true);
@@ -463,7 +508,7 @@ String address,port,user,pass;
                  }
                }
                
-                }        
+                }       
     }//GEN-LAST:event_jPanel2MouseClicked
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed

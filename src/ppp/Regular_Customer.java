@@ -41,6 +41,10 @@ public class Regular_Customer extends javax.swing.JFrame {
         initComponents();
     }
 
+    Regular_Customer(String address, String port, String user, String pass) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

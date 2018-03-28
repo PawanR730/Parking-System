@@ -282,7 +282,7 @@ public class Admin_Login extends javax.swing.JFrame {
       SQLCONNECTION_NEW  MyCon = new  SQLCONNECTION_NEW(address,port,user,pass);
       theConn = MyCon.getConnection("Software_Parking_Project");
       Statement stmt = theConn.createStatement();
-      SQL = "select * from Regular where user = '" + g_user + "'";      
+      SQL = "select * from Regular where rank= 'Admin' and user = '" + g_user + "'";      
       ResultSet rs = stmt.executeQuery(SQL);      
       while (rs.next()) {
         x1 = rs.getString("user");
