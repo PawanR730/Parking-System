@@ -37,8 +37,7 @@ public class SQLCreateGuest {
       stmt = c.createStatement();
       if (!found) {
         if (tname.equals("Guest")) {
-              SQL = "create table Guest (id INTEGER not null auto_increment,name varchar(30),"
-                  + "gender varchar(10),phone varchar(20),Address varchar(80),Rank varchar(20),Vehicle varchar(10),License varchar(80),primary key (id),Time_in TIMESTAMP,Time_out TIMESTAMP)"+"";
+              SQL = "create table Guest (id INTEGER not null auto_increment,name varchar(30),gender varchar(10),phone varchar(20),Address varchar(80),Rank varchar(20),Vehicle varchar(10),License varchar(80),primary key (id),Time_in timestamp not null,Time_out timestamp null)";
   
         }//name,gender,phone,address,rank,Vehicle,drvlic,Time_in,Date
         stmt.executeUpdate(SQL);

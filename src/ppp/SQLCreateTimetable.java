@@ -40,9 +40,10 @@ public class SQLCreateTimetable {
         if (tname.equals("Timetable")) {
             System.out.println("Entered");
               SQL = "create table Timetable"+ "(id INTEGER not null auto_increment,"
-                      + "In_time VARCHAR(30),"
-                      + "Out_time VARCHAR(30),"
+                      + "Time_in timestamp not null,"
+                      + "Time_out timestamp not null,"
                       + "Date VARCHAR(12),"
+                      + "name VARCHAR(30),"
                       + "Vehicle VARCHAR(15),primary key ( id ))";
                       
               

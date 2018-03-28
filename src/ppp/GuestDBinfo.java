@@ -40,7 +40,7 @@ public class GuestDBinfo extends javax.swing.JFrame {
                 SQLCONNECTION_NEW  MyCon = new SQLCONNECTION_NEW(address,port,user,pass);
                 theConn = MyCon.getConnection("Software_Parking_Project");
                 Statement stmt = theConn.createStatement();    
-                SQL = "select * from Guest order by Time";
+                SQL = "select * from Guest order by Time_in";
                 ResultSet rs = stmt.executeQuery(SQL);
                 GuestDBtable.setModel(DbUtils.resultSetToTableModel(rs));
             }catch (SQLException ex) {
