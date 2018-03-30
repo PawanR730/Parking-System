@@ -11,13 +11,16 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
+import ppp.SQLCONNECTION_NEW;
+import ppp.SQLCONNECTION_NEW;
 
 /**
  *
- * @author pawan
+ * @author Ramya B
  */
-public class SQLCreateGuest {
-     public SQLCreateGuest(String tname,String a,String b,String f,String d) {
+public class SQLCreateCustomers {
+    
+     public SQLCreateCustomers(String tname,String a,String b,String f,String d) {
     
     Connection c;    SQLCONNECTION_NEW MyCon;
     Statement stmt;  String SQL="";
@@ -36,14 +39,14 @@ public class SQLCreateGuest {
       }
       stmt = c.createStatement();
       if (!found) {
-        if (tname.equals("Guest")) {
-              SQL = "create table Guest (id INTEGER not null auto_increment,name varchar(30),gender varchar(10),phone varchar(20),Address varchar(80),Rank varchar(20),Vehicle varchar(10),License varchar(80),primary key (id),slot varchar(10),Time_in timestamp not null DEFAULT CURRENT_TIMESTAMP,Time_out timestamp null )";
-  
-        }//name,gender,phone,address,rank,Vehicle,drvlic,Time_in,Date
+        if (tname.equals("Customers")) {
+              SQL = "create table Customers (id INTEGER NOT NULL AUTO_INCREMENT, primary key(id),Total_Customers integer not NULL,"
+                  + "Regular_Customers INTEGER not NULL,Guest_Customers INTEGER not NULL)"+"";
+        }
         stmt.executeUpdate(SQL);
         md = c.getMetaData();
         rs = md.getTables(null, null, "%", null);
-        msg = "Table Guest>>> ";
+        msg = "Table Customer >>> ";
         while (rs.next()) {
           if (rs.getString(3).equals(tname)) {
               msg = msg+rs.getString(3).toUpperCase();

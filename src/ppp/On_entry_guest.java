@@ -37,11 +37,11 @@ import ppp.SQLCONNECTION_NEW;
  * @author Ramya B
  */
 public class On_entry_guest extends javax.swing.JFrame {
-String address,port,user,pass;
+String address,port,user,pass,slotty;
     /**
      * Creates new form On_entry_guest
      */
-    public On_entry_guest(String a,String b,String c,String d) {
+    public On_entry_guest(String a,String b,String c,String d,String e) {
         
          run();
         setResizable(false);
@@ -49,6 +49,7 @@ String address,port,user,pass;
         port = b;
         user = c;
         pass = d;
+        slotty=e;
         initComponents();
     }
     
@@ -510,32 +511,32 @@ String address,port,user,pass;
         if("".equals(c_name)){
             JOptionPane.showMessageDialog(null, "Please enter your Full Name");
             this.setVisible(false);
-            new On_entry_guest(address,port,user,pass).setVisible(true);
+            new On_entry_guest(address,port,user,pass,slotty).setVisible(true);
         }
 
         if(c_vehi==null)
         {
             JOptionPane.showMessageDialog(null, "Please select your Vehicle Number");
             this.setVisible(false);
-            new On_entry_guest(address,port,user,pass).setVisible(true);
+            new On_entry_guest(address,port,user,pass,slotty).setVisible(true);
         }
        if(c_gen == null){
             JOptionPane.showMessageDialog(null, "Please select your Gender");
             this.setVisible(false);
-            new On_entry_guest(address,port,user,pass).setVisible(true);
+            new On_entry_guest(address,port,user,pass,slotty).setVisible(true);
         }else if("".equals(c_phone)){
             JOptionPane.showMessageDialog(null, "Please enter your Phone Number");
             this.setVisible(false);
-            new On_entry_guest(address,port,user,pass).setVisible(true);
+            new On_entry_guest(address,port,user,pass,slotty).setVisible(true);
         }else if("".equals(c_address)){
             JOptionPane.showMessageDialog(null, "Please enter the Address");
             this.setVisible(false);
-            new On_entry_guest(address,port,user,pass).setVisible(true);
+            new On_entry_guest(address,port,user,pass,slotty).setVisible(true);
         }
 else if("".equals(c_drvlic)){
             JOptionPane.showMessageDialog(null, "Please enter the Driving License Number");
             this.setVisible(false);
-            new On_entry_guest(address,port,user,pass).setVisible(true);
+            new On_entry_guest(address,port,user,pass,slotty).setVisible(true);
         }
         else{
             Connection c;    SQLCONNECTION_NEW MyCon;
@@ -552,10 +553,20 @@ else if("".equals(c_drvlic)){
       long t = date.getTime();
       java.sql.Timestamp sqlTimestamp = new java.sql.Timestamp(t);
       
-                SQL = "insert into Guest (name,gender,phone,address,rank,Vehicle,License,Time_in) values "
-                + "('" + c_name +"','" + c_gen + "','"+ c_phone +"','" + c_address +"','" + c_rank + "','" +c_vehi+ "','" +c_drvlic+ "','"  + sqlTimestamp +  "')";
+                SQL = "insert into Guest (name,gender,phone,address,rank,Vehicle,License,Time_in,slot) values "
+                + "('" + c_name +"','" + c_gen + "','"+ c_phone +"','" + c_address +"','" + c_rank + "','" +c_vehi+ "','" +c_drvlic+ "','"  + sqlTimestamp +  "','"  + slotty +  "')";
                 stmt.executeUpdate(SQL);
                 JOptionPane.showMessageDialog(null, "Adding Successful");
+                MyCon = new  SQLCONNECTION_NEW(address,port,user,pass);
+      theConn = MyCon.getConnection("Software_Parking_Project");
+       stmt = theConn.createStatement();
+       
+      SQL = "insert into Timetable (Time_in,Date,Vehicle,name,Slot) values "
+              + "('" + sqlTimestamp + "','"+ d +"','" +c_vehi + "','"+c_name+"','"+ slotty +"')";  
+      stmt.executeUpdate(SQL); 
+        JOptionPane.showMessageDialog(null, "Car Checked In and the slot Number is "+ slotty );
+                
+                
                 this.setVisible(false);
         new Guest_Customer(address,port,user,pass).setVisible(true);
                 //new Regular_Customer(address,port,user,pass,c_vehi).setVisible(true);
@@ -575,7 +586,8 @@ else if("".equals(c_drvlic)){
                 }
             }
 
-        }
+        }        
+        
     }//GEN-LAST:event_jPanel5MouseClicked
 
     private void jPanel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseClicked

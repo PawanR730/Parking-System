@@ -36,7 +36,7 @@ public class SQLCreateFare {
       if (!found) {
         if (tname.equals("Fares")) {
               SQL = "create table Fare (id INT AUTO_INCREMENT primary key NOT NULL,"
-                  + "monthly_fare INT not NULL,daily_fare INT not NULL,mtax DECIMAL(9,3) not NULL,dtax DECIMAL(9,3)not NULL,Time TIMESTAMP)"+"";
+                  + "monthly_fare INT not NULL,daily_fare INT not NULL,mtax DECIMAL(9,3) not NULL,dtax DECIMAL(9,3)not NULL,Time TIMESTAMP DEFAULT CURRENT_TIMESTAMP)"+"";
   
         }
         stmt.executeUpdate(SQL);

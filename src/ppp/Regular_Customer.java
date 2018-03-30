@@ -396,7 +396,7 @@ boolean[] array=new boolean[100];
     }// </editor-fold>//GEN-END:initComponents
 
     private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
-        
+        //int i1,j1;
 
        Date d = new Date(System.currentTimeMillis());
         ///String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
@@ -406,15 +406,39 @@ boolean[] array=new boolean[100];
       int i;
       
       Connection theConn; String SQL;
-      for(i=1;i<=5;i++)
+    
+      try {
+                
+                  
+                SQLCONNECTION_NEW  MyCon = new SQLCONNECTION_NEW(address,port,user,pass);
+                theConn = MyCon.getConnection("Software_Parking_Project");
+                Statement stmt = theConn.createStatement();    
+                SQL = "select count(*) from Customers";
+                ResultSet rs = stmt.executeQuery(SQL);rs.next();
+                //RegularDBinfo_table.setModel(DbUtils.resultSetToTableModel(rs));
+                int j=rs.getInt(1);
+                System.out.println(j);
+                SQL = "select * from Customers where id="+j;
+                 rs=stmt.executeQuery(SQL);
+                while(rs.next()){
+                System.out.println(rs.getString(2));
+                c_cust=(rs.getString(2));System.out.println(c_cust);
+                System.out.println(rs.getString(3));
+                c_reg=(rs.getString(3));System.out.println(c_reg);
+                System.out.println(rs.getString(3));
+            
+                
+                }i1 = Integer.parseInt(c_cust);
+                j1 = Integer.parseInt(c_reg);System.out.println("cust="+i1);System.out.println("reg="+j1);
+      for(i=1;i<=j1;i++)
       {
           slotty=Integer.toString(i);
-          try{
-                    SQLCONNECTION_NEW MyCon = new SQLCONNECTION_NEW(address,port,user,pass);
+          
+                     MyCon = new SQLCONNECTION_NEW(address,port,user,pass);
                     theConn = MyCon.getConnection("Software_Parking_Project");
-                    Statement stmt = theConn.createStatement();    
+                stmt = theConn.createStatement();    
                     SQL = "select Slots from ParkingSlot where Slots='" + slotty + "'"; 
-                    ResultSet rs = stmt.executeQuery(SQL);
+                     rs = stmt.executeQuery(SQL);
                     
                     if(rs.first()){
                        continue;
@@ -433,14 +457,12 @@ boolean[] array=new boolean[100];
     }
     catch (SQLException ex) {
       JOptionPane.showMessageDialog(null, ex);
-    }
-                    }
-        }catch( HeadlessException | SQLException e){
-            JOptionPane.showMessageDialog(null, e);
-        }       
+    }}}
+                    
           
-      }
-      if(i==6)
+          
+      
+      if(i==(j1+1))
       {
            JOptionPane.showMessageDialog(null, "All the PArking Slots are Occupied...Sorry");
       }
@@ -451,11 +473,11 @@ boolean[] array=new boolean[100];
         
         String x1 = null;
         try{
-                    SQLCONNECTION_NEW MyCon = new SQLCONNECTION_NEW(address,port,user,pass);
+                    MyCon = new SQLCONNECTION_NEW(address,port,user,pass);
                     theConn = MyCon.getConnection("Software_Parking_Project");
-                    Statement stmt = theConn.createStatement();    
+                    stmt = theConn.createStatement();    
                     SQL = "select * from Regular where Vehicle='" + vehi + "'"; 
-                    ResultSet rs = stmt.executeQuery(SQL);
+                     rs = stmt.executeQuery(SQL);
                     
                     while(rs.next()){
                         x1 = rs.getString("Vehicle");
@@ -470,9 +492,9 @@ boolean[] array=new boolean[100];
             JOptionPane.showMessageDialog(null, "The car not found or not a member yet!");
         }else{
             try {
-       SQLCONNECTION_NEW  MyCon = new  SQLCONNECTION_NEW(address,port,user,pass);
+       MyCon = new  SQLCONNECTION_NEW(address,port,user,pass);
       theConn = MyCon.getConnection("Software_Parking_Project");
-      Statement stmt = theConn.createStatement();
+       stmt = theConn.createStatement();
       SQL = "insert into Timetable (Time_in,Date,Vehicle,name,Slot) values "
               + "('" + sqlTimestamp + "','"+ d +"','" +vehi + "','"+x7+"','"+ slotty +"')";  
       stmt.executeUpdate(SQL); 
@@ -483,7 +505,9 @@ boolean[] array=new boolean[100];
       JOptionPane.showMessageDialog(null, ex);
     }
         }
-      }
+      }}catch( HeadlessException | SQLException e){
+            JOptionPane.showMessageDialog(null, e);
+        }   
     }//GEN-LAST:event_jPanel4MouseClicked
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
@@ -684,5 +708,5 @@ boolean[] array=new boolean[100];
     private java.awt.Label label2;
     // End of variables declaration//GEN-END:variables
 String x1 = null,x2=null,x3=null,x4=null,x5=null,x7=null;
-Time t1,t2;
+Time t1,t2;String c_cust,c_reg;int j1;int i1;
 }

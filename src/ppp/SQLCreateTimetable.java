@@ -39,13 +39,13 @@ public class SQLCreateTimetable {
       if (!found) {
         if (tname.equals("Timetable")) {
             System.out.println("Entered");
-              SQL = "create table Timetable"+ "(id INTEGER not null auto_increment,"
-                      + "Time_in timestamp not null,"
-                      + "Time_out timestamp not null,"
+              SQL = "create table Timetable"+ "(id INTEGER not null auto_increment ,primary key (id),"
+                      + "Time_in timestamp not null DEFAULT CURRENT_TIMESTAMP,"
+                      + "Time_out timestamp null ,"
                       + "Date VARCHAR(12),"
                       + "name VARCHAR(30),"
-                      + "Slot VARCAHR(15),"
-                      + "Vehicle VARCHAR(15),primary key ( id ))";
+                      + "Slot VARCHAR(15),"
+                      + "Vehicle VARCHAR(15))";
                       
               
              
@@ -56,7 +56,7 @@ public class SQLCreateTimetable {
         stmt.executeUpdate(SQL);
         md = c.getMetaData();
         rs = md.getTables(null, null, "%", null);
-        msg = "Table >>> ";
+        msg = "Table Timetable>>> ";
         while (rs.next()) {
           if (rs.getString(3).equals(tname)) {
               msg = msg+rs.getString(3).toUpperCase();

@@ -42,6 +42,10 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
 import java.time.Clock;
+import ppp.SQLCONNECTION_NEW;
+import ppp.SQLCONNECTION_NEW;
+import ppp.user;
+import ppp.user;
 /**
 /**
 /**
@@ -60,6 +64,7 @@ String address,port,user,pass;
         port = b;
         user = c;
         pass = d;
+         
         initComponents();
        
     }
@@ -102,12 +107,16 @@ String address,port,user,pass;
         dtaxtxt = new javax.swing.JTextField();
         jTextField1 = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
+        c_reg = new javax.swing.JTextField();
+        c_cust = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("user");
+        jLabel1.setText("USERNAME");
 
-        jLabel2.setText("pass");
+        jLabel2.setText("PASSWORD");
 
         jLabel3.setText("cnfpass");
 
@@ -141,7 +150,12 @@ String address,port,user,pass;
 
         ranktxt.setText("Admin");
 
-        jButton1.setText("jButton1");
+        jButton1.setText("SUBMIT");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -166,11 +180,15 @@ String address,port,user,pass;
 
         jLabel11.setText("monthy tax");
 
+        mtaxtxt.setText("                                     ");
+
         jLabel12.setText("daily tax");
 
-        jTextField1.setText("jTextField1");
-
         jLabel14.setText("vehicle");
+
+        jLabel13.setText("TOTAL CUSTOMERS");
+
+        jLabel15.setText("REGULAR CUSTOMERS");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -184,7 +202,7 @@ String address,port,user,pass;
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1)
                         .addGap(195, 195, 195))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jRadioButton1)
@@ -215,7 +233,7 @@ String address,port,user,pass;
                                             .addComponent(ranktxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(dailytxt, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(0, 0, Short.MAX_VALUE)))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 149, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -223,12 +241,19 @@ String address,port,user,pass;
                                     .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING))
                                 .addGap(50, 50, 50))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel14)
-                                .addGap(40, 40, 40)))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel14)
+                                    .addComponent(jLabel15))
+                                .addGap(40, 40, 40))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(23, 23, 23)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(c_reg)
                             .addComponent(mtaxtxt)
                             .addComponent(jTextField1)
-                            .addComponent(dtaxtxt))
+                            .addComponent(dtaxtxt)
+                            .addComponent(c_cust))
                         .addGap(18, 18, 18))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -261,11 +286,18 @@ String address,port,user,pass;
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel14))))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel4)
+                        .addComponent(nametxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(c_cust, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(nametxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(c_reg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel15))
+                .addGap(41, 41, 41)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(addrtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -300,7 +332,7 @@ String address,port,user,pass;
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 58, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -310,11 +342,12 @@ String address,port,user,pass;
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        
-        String c_user,c_pass,c_compass,c_name,c_gen,c_phone,c_address,c_rank,c_monthly,c_daily,c_mtax,c_dtax,c_vehi;
+        String c_user,c_pass,c_compass,c_name,c_gen,c_phone,c_address,c_rank,c_monthly,reg,cust,c_daily,c_mtax,c_dtax,c_vehi;
         
         c_user = usertxt.getText();
         c_pass =passtxt.getText();
@@ -329,6 +362,8 @@ String address,port,user,pass;
         c_daily=dailytxt.getText();
         c_mtax=mtaxtxt.getText();
         c_dtax=dtaxtxt.getText();
+        reg=c_reg.getText();
+        cust=c_cust.getText();
         Date d = new Date(System.currentTimeMillis());
         
         //String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
@@ -343,6 +378,11 @@ String address,port,user,pass;
                     JOptionPane.showMessageDialog(null, "Please enter Comfirm Password");            
                 }else if("".equals(c_name)){
                     JOptionPane.showMessageDialog(null, "Please enter your Full Name");
+                }else if("".equals(reg)){
+                    JOptionPane.showMessageDialog(null, "Please enter Number of Regular Customers");
+                }
+                else if("".equals(cust)){
+                    JOptionPane.showMessageDialog(null, "Please enter number of Total Customers");
                 }
                 else if(c_gen == null){
                     JOptionPane.showMessageDialog(null, "Please select your Gender");
@@ -351,8 +391,9 @@ String address,port,user,pass;
                 }else if("".equals(c_address)){
                     JOptionPane.showMessageDialog(null, "Please enter the Address");
                 }else if(!c_pass.equals(c_compass)){
-                    JOptionPane.showMessageDialog(null, "Password not math");
-                }else if("".equals(c_daily)){
+                    JOptionPane.showMessageDialog(null, "Password do not match");
+                }
+                else if("".equals(c_daily)){
                     JOptionPane.showMessageDialog(null, "Please enter Monthly fare");
                 }else if("".equals(c_monthly)){
                     JOptionPane.showMessageDialog(null, "Please enter Daily Fare");}
@@ -381,15 +422,23 @@ String address,port,user,pass;
                 int j = Integer.parseInt(c_daily);System.out.println(i);System.out.println(j);
                 Float monthly=Float.parseFloat(c_mtax);System.out.println(c_mtax);System.out.println(c_dtax);
                 Float daily=Float.parseFloat(c_dtax);System.out.println(monthly);System.out.println(daily);
-                
+                int i1 = Integer.parseInt(reg);
+                int j1 = Integer.parseInt(cust);int k1=j1-i1;
                 SQL = "INSERT INTO Fare(monthly_fare,daily_fare,mtax,dtax,time) VALUES ('"+i+"','"+j+"','"+monthly+"','"+daily+"','"+sqlTimestamp+"')";  
                 stmt.executeUpdate(SQL); 
                 JOptionPane.showMessageDialog(null, "Monthly fares and tax updated");
                  JOptionPane.showMessageDialog(null, "Daily fares and tax updated");
+                 if(j1>=i1){
+                      SQL = "INSERT INTO Customers(Total_Customers,Regular_Customers,Guest_Customers) VALUES ('"+j1+"','"+i1+"','"+k1+"')";  
+                stmt.executeUpdate(SQL); 
+                JOptionPane.showMessageDialog(null, "Total Customers updated");
+                JOptionPane.showMessageDialog(null, "Regular Customers updated");
                 new user(address,port,user,pass).setVisible(true);
                 setVisible(false);
                 
-                }
+                }else
+                     JOptionPane.showMessageDialog(null, "Enter correct number of regular customers and guest customers");}
+                    
                     catch(SQLException ex) {
                      JOptionPane.showMessageDialog(null, ex);
                 }
@@ -426,6 +475,10 @@ String address,port,user,pass;
         // TODO add your handling code here:
     }//GEN-LAST:event_monthtxtActionPerformed
 
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -459,6 +512,8 @@ String address,port,user,pass;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField addrtxt;
+    private javax.swing.JTextField c_cust;
+    private javax.swing.JTextField c_reg;
     private javax.swing.JPasswordField cnfpasstxt;
     private javax.swing.JTextField dailytxt;
     private javax.swing.JTextField dtaxtxt;
@@ -467,7 +522,9 @@ String address,port,user,pass;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

@@ -44,7 +44,7 @@ public class SQLCreateSlots {
         stmt.executeUpdate(SQL);
         md = c.getMetaData();
         rs = md.getTables(null, null, "%", null);
-        msg = "Table >>> ";
+        msg = "Table Create Slots>>> ";
         while (rs.next()) {
           if (rs.getString(3).equals(tname)) {
               msg = msg+rs.getString(3).toUpperCase();

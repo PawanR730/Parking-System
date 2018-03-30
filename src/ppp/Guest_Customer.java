@@ -5,6 +5,13 @@
  */
 package ppp;
 
+import java.awt.HeadlessException;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
 import ppp.user;
 
 /**
@@ -16,7 +23,9 @@ public class Guest_Customer extends javax.swing.JFrame {
     /**
      * Creates new form Guest_Customer
      */
-     String user,pass,port,address;
+  int slot;
+    String user,pass,port,address,vehi;
+    String slotty;
     public Guest_Customer(String a,String b,String c,String d) {
         run();
         
@@ -266,8 +275,91 @@ public class Guest_Customer extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
-        this.setVisible(false);
-        new On_entry_guest(address,port,user,pass).setVisible(true);// TODO add your handling code here:
+        Date d = new Date(System.currentTimeMillis());
+        ///String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
+         java.util.Date date = new java.util.Date();
+      long t = date.getTime();
+      java.sql.Timestamp sqlTimestamp = new java.sql.Timestamp(t);
+      int i;
+      
+      Connection theConn; String SQL;
+    
+      try {
+                
+                  
+                SQLCONNECTION_NEW  MyCon = new SQLCONNECTION_NEW(address,port,user,pass);
+                theConn = MyCon.getConnection("Software_Parking_Project");
+                Statement stmt = theConn.createStatement();    
+                SQL = "select count(*) from Customers";
+                ResultSet rs = stmt.executeQuery(SQL);rs.next();
+                //RegularDBinfo_table.setModel(DbUtils.resultSetToTableModel(rs));
+                int j=rs.getInt(1);
+                System.out.println(j);
+                SQL = "select * from Customers where id="+j;
+                 rs=stmt.executeQuery(SQL);
+                while(rs.next()){
+                System.out.println(rs.getString(2));
+                c_cust=(rs.getString(2));System.out.println(c_cust);
+                System.out.println(rs.getString(3));
+                c_reg=(rs.getString(3));System.out.println(c_reg);
+                System.out.println(rs.getString(3));
+            
+                
+                }i1 = Integer.parseInt(c_cust);
+                j1 = Integer.parseInt(c_reg);System.out.println("cust="+i1);System.out.println("reg="+j1);
+      for(i=j1+1;i<=i1;i++)
+      {System.out.println("i1="+i1);
+      System.out.println("j1="+j1);
+          slotty=Integer.toString(i);
+          
+                     MyCon = new SQLCONNECTION_NEW(address,port,user,pass);
+                    theConn = MyCon.getConnection("Software_Parking_Project");
+                stmt = theConn.createStatement();    
+                    SQL = "select Slots from ParkingSlot where Slots='" + slotty + "'"; 
+                     rs = stmt.executeQuery(SQL);
+                    
+                    if(rs.first()){
+                       continue;
+                    
+                    }
+                    else
+                    {
+                         try {
+      SQL = "select count(*) from guest";
+                 rs = stmt.executeQuery(SQL);rs.next();
+                //RegularDBinfo_table.setModel(DbUtils.resultSetToTableModel(rs));
+                int p=rs.getInt(1);int id=p+1;
+      SQL = "insert into ParkingSlot (Slots) values "
+              + "('"+ slotty +"')";  
+      stmt.executeUpdate(SQL); 
+      
+        JOptionPane.showMessageDialog(null, "REMEMBER YOU ID IS " +id+ " AND slot Number is "+ slotty );
+        //getfordb();
+        break;
+    }
+    catch (SQLException ex) {
+      JOptionPane.showMessageDialog(null, ex);
+    }}}
+                    
+          
+          
+      
+      if(i==(i1+1))
+      {
+           JOptionPane.showMessageDialog(null, "All the PArking Slots are Occupied...Sorry");
+      }
+      
+      else
+      {
+      this.setVisible(false);
+        new On_entry_guest(address,port,user,pass,slotty).setVisible(true);
+
+      }}catch( HeadlessException | SQLException e){
+            JOptionPane.showMessageDialog(null, e);
+        }   
+        
+        /*this.setVisible(false);
+        new On_entry_guest(address,port,user,pass).setVisible(true);*/// TODO add your handling code here:
     }//GEN-LAST:event_jPanel4MouseClicked
 
     private void jPanel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel5MouseClicked
@@ -277,7 +369,7 @@ this.setVisible(false);
 
     private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
        this.setVisible(false);
-        new exit_guest(address,port,user,pass).setVisible(true); // TODO add your handling code here:
+        new FareGuest(address,port,user,pass).setVisible(true); // TODO add your handling code here:
     }//GEN-LAST:event_jPanel3MouseClicked
 
     /**
@@ -328,4 +420,4 @@ this.setVisible(false);
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
-}
+String c_cust,c_reg;int j1;int i1;}
