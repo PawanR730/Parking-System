@@ -23,12 +23,16 @@ import java.time.Clock;
  *
  * @author pawan
  */
-public class Regular_Customer extends javax.swing.JFrame {
 
+public class Regular_Customer extends javax.swing.JFrame {
+boolean[] array=new boolean[100];
     /**
      * Creates new form Regular_Customer
      */
+    
+    int slot;
     String user,pass,port,address,vehi;
+    String slotty;
     public Regular_Customer(String a,String b,String c,String d,String v ) {
         run();
         setTitle("Regular Customer Homepage");
@@ -211,6 +215,11 @@ public class Regular_Customer extends javax.swing.JFrame {
         jPanel6.setBackground(new java.awt.Color(44, 62, 80));
         jPanel6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
         jPanel6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel6MouseClicked(evt);
+            }
+        });
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ppp/Icons/icons8-rupee-96.png"))); // NOI18N
         jLabel7.setText("jLabel7");
@@ -262,7 +271,7 @@ public class Regular_Customer extends javax.swing.JFrame {
 
         jLabel22.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel22.setText("UPDATE ");
+        jLabel22.setText("Parking History");
 
         jLabel23.setText("ACCOUNT");
 
@@ -278,9 +287,9 @@ public class Regular_Customer extends javax.swing.JFrame {
                 .addComponent(jLabel23)
                 .addGap(102, 102, 102))
             .addGroup(jPanel12Layout.createSequentialGroup()
-                .addComponent(jLabel24)
-                .addGap(30, 30, 30)
                 .addComponent(jLabel22)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel24)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel12Layout.createSequentialGroup()
                 .addGap(29, 29, 29)
@@ -388,14 +397,58 @@ public class Regular_Customer extends javax.swing.JFrame {
 
     private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
         
-        
+
        Date d = new Date(System.currentTimeMillis());
         ///String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
          java.util.Date date = new java.util.Date();
       long t = date.getTime();
       java.sql.Timestamp sqlTimestamp = new java.sql.Timestamp(t);
+      int i;
       
-        Connection theConn; String SQL;
+      Connection theConn; String SQL;
+      for(i=1;i<=5;i++)
+      {
+          slotty=Integer.toString(i);
+          try{
+                    SQLCONNECTION_NEW MyCon = new SQLCONNECTION_NEW(address,port,user,pass);
+                    theConn = MyCon.getConnection("Software_Parking_Project");
+                    Statement stmt = theConn.createStatement();    
+                    SQL = "select Slots from ParkingSlot where Slots='" + slotty + "'"; 
+                    ResultSet rs = stmt.executeQuery(SQL);
+                    
+                    if(rs.first()){
+                       continue;
+                    
+                    }
+                    else
+                    {
+                         try {
+      
+      SQL = "insert into ParkingSlot (Slots) values "
+              + "('"+ slotty +"')";  
+      stmt.executeUpdate(SQL); 
+        JOptionPane.showMessageDialog(null, " slot Number is "+ slotty );
+        //getfordb();
+        break;
+    }
+    catch (SQLException ex) {
+      JOptionPane.showMessageDialog(null, ex);
+    }
+                    }
+        }catch( HeadlessException | SQLException e){
+            JOptionPane.showMessageDialog(null, e);
+        }       
+          
+      }
+      if(i==6)
+      {
+           JOptionPane.showMessageDialog(null, "All the PArking Slots are Occupied...Sorry");
+      }
+      
+      else
+      {
+      
+        
         String x1 = null;
         try{
                     SQLCONNECTION_NEW MyCon = new SQLCONNECTION_NEW(address,port,user,pass);
@@ -420,16 +473,17 @@ public class Regular_Customer extends javax.swing.JFrame {
        SQLCONNECTION_NEW  MyCon = new  SQLCONNECTION_NEW(address,port,user,pass);
       theConn = MyCon.getConnection("Software_Parking_Project");
       Statement stmt = theConn.createStatement();
-      SQL = "insert into Timetable (Time_in,Date,Vehicle,name) values "
-              + "('" + sqlTimestamp + "','"+ d +"','" +vehi + "','"+x7+"')";  
+      SQL = "insert into Timetable (Time_in,Date,Vehicle,name,Slot) values "
+              + "('" + sqlTimestamp + "','"+ d +"','" +vehi + "','"+x7+"','"+ slotty +"')";  
       stmt.executeUpdate(SQL); 
-        JOptionPane.showMessageDialog(null, "Car Checked In");
+        JOptionPane.showMessageDialog(null, "Car Checked In and the slot Number is "+ slotty );
         //getfordb();
     }
     catch (SQLException ex) {
       JOptionPane.showMessageDialog(null, ex);
     }
         }
+      }
     }//GEN-LAST:event_jPanel4MouseClicked
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
@@ -442,7 +496,7 @@ public class Regular_Customer extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel5MouseClicked
 
     private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
-       
+         
         //String check_out = C_out.getText();
         Date d = new Date(System.currentTimeMillis());
         //String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
@@ -452,6 +506,7 @@ public class Regular_Customer extends javax.swing.JFrame {
       
         
         Connection theConn; String SQL;
+        
         
         try{
                      SQLCONNECTION_NEW   MyCon = new  SQLCONNECTION_NEW (address,port,user,pass);
@@ -463,6 +518,7 @@ public class Regular_Customer extends javax.swing.JFrame {
                     while(rs.next()){
                         x1 = rs.getString("Vehicle");
                         x2=rs.getString("id");
+                        x3=rs.getString("Slot");
                         
                         
                     
@@ -482,6 +538,7 @@ public class Regular_Customer extends javax.swing.JFrame {
       //SQL = "insert into Timetable (Out_time,Date,Vehicle) values "
            //   + "('" + timeStamp + "','"+ d +"','" + vehi + "')";  
       stmt.executeUpdate(SQL); 
+     
         JOptionPane.showMessageDialog(null, "Car Checked Out "+ sqlTimestamp+"and your id is " +x2);
         //getfordb();
         
@@ -490,6 +547,7 @@ public class Regular_Customer extends javax.swing.JFrame {
       JOptionPane.showMessageDialog(null, ex);
     }
         }
+        SQLDeleteParkingSlot make=new  SQLDeleteParkingSlot(x3,address,port,user,pass);
         
     }//GEN-LAST:event_jPanel1MouseClicked
 
@@ -560,6 +618,12 @@ public class Regular_Customer extends javax.swing.JFrame {
         new RegularselfDBinfo(address,port,user,pass,vehi).setVisible(true);
         dispose();
     }//GEN-LAST:event_jPanel12MouseClicked
+
+    private void jPanel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel6MouseClicked
+       this.setVisible(false);
+        new DisplayRegularFare(address,port,user,pass,vehi).setVisible(true);
+        
+    }//GEN-LAST:event_jPanel6MouseClicked
 
     /**
      * @param args the command line arguments

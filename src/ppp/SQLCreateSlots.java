@@ -16,9 +16,9 @@ import javax.swing.JOptionPane;
  *
  * @author pawan
  */
-public class SQLCreateTimetable {
+public class SQLCreateSlots {
     
-    public SQLCreateTimetable(String tname,String a,String b,String f,String d) {
+     public SQLCreateSlots(String tname,String a,String b,String f,String d) {
     
     Connection c;    SQLCONNECTION_NEW MyCon;
     Statement stmt;  String SQL="";
@@ -37,22 +37,10 @@ public class SQLCreateTimetable {
       }
       stmt = c.createStatement();
       if (!found) {
-        if (tname.equals("Timetable")) {
-            System.out.println("Entered");
-              SQL = "create table Timetable"+ "(id INTEGER not null auto_increment,"
-                      + "Time_in timestamp not null,"
-                      + "Time_out timestamp not null,"
-                      + "Date VARCHAR(12),"
-                      + "name VARCHAR(30),"
-                      + "Slot VARCAHR(15),"
-                      + "Vehicle VARCHAR(15),primary key ( id ))";
-                      
-              
-             
-              
-              
+        if (tname.equals("ParkingSlot")) {
+              SQL = "create table ParkingSlot (id INTEGER not null auto_increment,Slots VARCHAR(15),primary key (id))";
   
-        }
+        }//name,gender,phone,address,rank,Vehicle,drvlic,Time_in,Date
         stmt.executeUpdate(SQL);
         md = c.getMetaData();
         rs = md.getTables(null, null, "%", null);

@@ -157,6 +157,7 @@ public class Main extends javax.swing.JFrame {
          SQLCreateTimetable t2 = new SQLCreateTimetable("Timetable",m1,m2,m3,m4);
          SQLCreateGuest t4= new SQLCreateGuest("Guest",m1,m2,m3,m4);
          SQLCreateFare t5=new SQLCreateFare("Fares",m1,m2,m3,m4);
+         SQLCreateSlots t6=new SQLCreateSlots("ParkingSlot",m1,m2,m3,m4);
           String check = null;
           if(found){
             try {
