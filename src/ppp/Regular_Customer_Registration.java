@@ -412,103 +412,88 @@ String address,port,user,pass;
     }//GEN-LAST:event_jPanel3MouseClicked
 
     private void jPanel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseClicked
-         String c_user = usernametxt.getText();
-                String c_pass = passwordtxt.getText();
-                String c_compass = cnfpasswordtxt.getText();
-                String c_name = fullnametxt.getText();
-                String c_check=check;
-                String c_gen = gender;
-                String c_phone = phnotxt.getText();
-                String c_address = addtxt.getText();
-                String c_rank="General"; 
-                String c_vehi=venotxt.getText();/// Rank is general for regular customers
-              
-                
-                if("".equals(c_user)){
-                    JOptionPane.showMessageDialog(null, "Please enter Username");
-                    this.setVisible(false);
-                    new Regular_Customer_Registration(address,port,user,pass).setVisible(true);
-                }else if("".equals(c_pass)){
-                    JOptionPane.showMessageDialog(null, "Please enter Password");
-                    this.setVisible(false);
-                    new Regular_Customer_Registration(address,port,user,pass).setVisible(true);
-                }else if("".equals(c_compass)){
-                    JOptionPane.showMessageDialog(null, "Please enter Comfirm Password"); 
-                    this.setVisible(false);
-                    new Regular_Customer_Registration(address,port,user,pass).setVisible(true);
-                }else if("".equals(c_name)){
-                    JOptionPane.showMessageDialog(null, "Please enter your Full Name");
-                    this.setVisible(false);
-                    new Regular_Customer_Registration(address,port,user,pass).setVisible(true);
-                }
-                else if(c_check==null)
-                {
-                  JOptionPane.showMessageDialog(null, "Please agree to the terms of service");  
-                  this.setVisible(false);
-                    new Regular_Customer_Registration(address,port,user,pass).setVisible(true);
-                  
-                }
-                else if(c_vehi==null)
-                        {
-                          JOptionPane.showMessageDialog(null, "Please select your Vehicle Number");
-                    this.setVisible(false);
-                    new Regular_Customer_Registration(address,port,user,pass).setVisible(true);  
-                        }
-                else if(c_gen == null){
-                    JOptionPane.showMessageDialog(null, "Please select your Gender");
-                    this.setVisible(false);
-                    new Regular_Customer_Registration(address,port,user,pass).setVisible(true);
-                }else if("".equals(c_phone)){
-                    JOptionPane.showMessageDialog(null, "Please enter your Phone Number");
-                    this.setVisible(false);
-                    new Regular_Customer_Registration(address,port,user,pass).setVisible(true);
-                }else if("".equals(c_address)){
-                    JOptionPane.showMessageDialog(null, "Please enter the Address");
-                    this.setVisible(false);
-                    new Regular_Customer_Registration(address,port,user,pass).setVisible(true);
-                }
-                else if(!c_pass.equals(c_compass)){
-                    JOptionPane.showMessageDialog(null, "Password not match");
-                    this.setVisible(false);
-                    new Regular_Customer_Registration(address,port,user,pass).setVisible(true);
-                }
-                else{
-                    this.setVisible(false);
-                    new Adminpermtoregular(address,port,user,pass).setVisible(true); 
-                    Connection c;    SQLCONNECTION_NEW MyCon;
-                    Statement stmt;  String SQL;
-                    Connection theConn = null;
-                    try {
-                
-                MyCon = new SQLCONNECTION_NEW(address,port,user,pass);
-                theConn = MyCon.getConnection("Software_Parking_Project");
-                stmt = theConn.createStatement();
-                java.util.Date date = new java.util.Date();
+         try {
+            java.util.Date date = new java.util.Date();
       long t = date.getTime();
       java.sql.Timestamp sqlTimestamp = new java.sql.Timestamp(t);
-                SQL = "insert into Regular (user,password,name,gender,phone,address,rank,Vehicle,Time) values "
-                        + "('" + c_user + "','" + c_pass + "','"+ c_name +"','" + c_gen + "','"+ c_phone +"','" + c_address +"','" + c_rank + "','" +c_vehi+"','" +sqlTimestamp+"')";  
                 
-                
-                stmt.executeUpdate(SQL);
-                JOptionPane.showMessageDialog(null, "Adding Successful");
-                new Regular_Customer(address,port,user,pass,c_vehi).setVisible(true);
-                setVisible(false);
-                
-                }
-                    catch(SQLException ex) {
-                     JOptionPane.showMessageDialog(null, ex);
-                }
-                    finally {
-                    try {
-                            if (theConn != null) theConn.close();
-                        }
-                             catch (Exception e) {
-                                 
-                 }
-               }
+                Connection theConn;
+                String SQL;
+                SQLCONNECTION_NEW  MyCon = new SQLCONNECTION_NEW(address,port,user,pass);
+                theConn = MyCon.getConnection("Software_Parking_Project");
+                Statement stmt = theConn.createStatement();    
+                SQL = "select count(*) from Customers";
+                ResultSet rs = stmt.executeQuery(SQL);rs.next();
+                //RegularDBinfo_table.setModel(DbUtils.resultSetToTableModel(rs));
+                int j=rs.getInt(1);
+                System.out.println(j);
+                SQL = "select * from Customers where id="+j;
+                 rs=stmt.executeQuery(SQL);
+                while(rs.next()){
+                System.out.println(rs.getString(2));
+                x1=rs.getString(2);
+                 x5=rs.getString(3);
+              
                
-                }       
+                
+                }
+                int cust=Integer.parseInt(x1);
+                int reg=Integer.parseInt(x5);
+                if(reg<cust){
+
+        String c_user = usernametxt.getText();
+        String c_pass = passwordtxt.getText();
+        String c_compass = cnfpasswordtxt.getText();
+        String c_name = fullnametxt.getText();
+        String c_check=check;
+        String c_gen = gender;
+        String c_phone = phnotxt.getText();
+        String c_address = addtxt.getText();
+        String c_vehi=venotxt.getText();
+        if("".equals(c_user)){
+            JOptionPane.showMessageDialog(null, "Please enter Username");
+        }else if("".equals(c_pass)){
+            JOptionPane.showMessageDialog(null, "Please enter Password");}
+            else if("".equals(c_vehi)){
+            JOptionPane.showMessageDialog(null, "Please enter Vehicle number");
+        }else if("".equals(c_compass)){
+            JOptionPane.showMessageDialog(null, "Please enter Comfirm Password");
+        }else if("".equals(c_name)){
+            JOptionPane.showMessageDialog(null, "Please enter your Full Name");
+        }
+        else if(c_check==null)
+        {
+            JOptionPane.showMessageDialog(null, "Please agree to the terms of service");
+        }
+        else if(c_gen == null){
+            JOptionPane.showMessageDialog(null, "Please select your Gender");
+        }else if("".equals(c_phone)){
+            JOptionPane.showMessageDialog(null, "Please enter your Phone Number");
+        }else if("".equals(c_address)){
+            JOptionPane.showMessageDialog(null, "Please enter the Address");
+        }
+        else if(!c_pass.equals(c_compass)){
+            JOptionPane.showMessageDialog(null, "Passwords do not match,RE-ENTER AGAIN");}
+        else{
+        reg=reg+1;int guest=cust-reg;
+              SQL = "insert into Regular (user,password,name,gender,phone,address,rank,Vehicle,Time) values "
+                + "('" + c_user + "','" + c_pass + "','"+ c_name +"','" + c_gen + "','"+ c_phone +"','" + c_address +"','" + "General" +"','" + c_vehi +"','" + sqlTimestamp + "')";
+                stmt.executeUpdate(SQL);
+            SQL = "INSERT INTO Customers(Total_Customers,Regular_Customers,Guest_Customers) VALUES ('"+cust+"','"+reg+"','"+guest+"')";  
+                stmt.executeUpdate(SQL); 
+                JOptionPane.showMessageDialog(null, "Regular Customers updated");
+                this.setVisible(false);
+                    new user(address,port,user,pass).setVisible(true);
+        /*else{
+            new loginforadd(address,port,user,pass,c_user,c_pass,c_compass,c_name,c_age,c_gen,c_phone,c_address,c_rank).setVisible(true);
+        }*/
+        }}else
+                {JOptionPane.showMessageDialog(null, "ALL THE SLOTS ARE FILLED ,REGULAR CUSTOMERS CANNOT BE TAKEN IN! SORRY");    
+           this.setVisible(false);
+                    new user(address,port,user,pass).setVisible(true);
+                }}catch (SQLException ex) {
+      JOptionPane.showMessageDialog(null, ex);
+    }
     }//GEN-LAST:event_jPanel2MouseClicked
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
@@ -523,6 +508,7 @@ String address,port,user,pass;
     private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
        this.setVisible(false);
                     new user(address,port,user,pass).setVisible(true);
+                    
     }//GEN-LAST:event_jPanel4MouseClicked
 
     /**
@@ -594,5 +580,5 @@ String address,port,user,pass;
     private javax.swing.JTextField usernametxt;
     private javax.swing.JTextField venotxt;
     // End of variables declaration//GEN-END:variables
-       String gender,check;
+       String gender,check,x1,x5;
 }

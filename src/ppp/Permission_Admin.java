@@ -5,6 +5,12 @@
  */
 package ppp;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Ramya B
@@ -431,8 +437,43 @@ public class Permission_Admin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
+        try {
+            java.util.Date date = new java.util.Date();
+      long t = date.getTime();
+      java.sql.Timestamp sqlTimestamp = new java.sql.Timestamp(t);
+                
+                Connection theConn;
+                String SQL;
+                SQLCONNECTION_NEW  MyCon = new SQLCONNECTION_NEW(address,port,user,pass);
+                theConn = MyCon.getConnection("Software_Parking_Project");
+                Statement stmt = theConn.createStatement();    
+                SQL = "select count(*) from Customers";
+                ResultSet rs = stmt.executeQuery(SQL);rs.next();
+                //RegularDBinfo_table.setModel(DbUtils.resultSetToTableModel(rs));
+                int j=rs.getInt(1);
+                System.out.println(j);
+                SQL = "select * from Customers where id="+j;
+                 rs=stmt.executeQuery(SQL);
+                while(rs.next()){
+                System.out.println(rs.getString(2));
+                x1=rs.getString(2);
+                 x5=rs.getString(3);
+              
+               
+                
+                }
+                int  cust=Integer.parseInt(x1);
+                int reg=Integer.parseInt(x5);
+                if(reg<cust){
         this.setVisible(false);
-        new Upgrade_Guest(address,port,user,pass).setVisible(true);        // TODO add your handling code here:
+        new Upgrade_Guest(address,port,user,pass).setVisible(true); }
+        else
+                {JOptionPane.showMessageDialog(null, "ALL THE SLOTS ARE FILLED ,REGULAR CUSTOMERS CANNOT BE TAKEN IN! SORRY");    
+           this.setVisible(false);
+                    new Permission_Admin(address,port,user,pass).setVisible(true);
+                }}catch (SQLException ex) {
+      JOptionPane.showMessageDialog(null, ex);
+    }// T// TODO add your handling code here:
     }//GEN-LAST:event_jPanel4MouseClicked
 
     private void jPanel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel6MouseClicked
@@ -441,14 +482,79 @@ public class Permission_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel6MouseClicked
 
     private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
+         try {
+            java.util.Date date = new java.util.Date();
+      long t = date.getTime();
+      java.sql.Timestamp sqlTimestamp = new java.sql.Timestamp(t);
+                
+                Connection theConn;
+                String SQL;
+                SQLCONNECTION_NEW  MyCon = new SQLCONNECTION_NEW(address,port,user,pass);
+                theConn = MyCon.getConnection("Software_Parking_Project");
+                Statement stmt = theConn.createStatement();    
+                SQL = "select count(*) from Customers";
+                ResultSet rs = stmt.executeQuery(SQL);rs.next();
+                //RegularDBinfo_table.setModel(DbUtils.resultSetToTableModel(rs));
+                int j=rs.getInt(1);
+                System.out.println(j);
+                SQL = "select * from Customers where id="+j;
+                 rs=stmt.executeQuery(SQL);
+                while(rs.next()){
+                System.out.println(rs.getString(2));
+                x1=rs.getString(2);
+                 x5=rs.getString(3);
+              
+               
+                
+                }
+                int cust=Integer.parseInt(x1);
+                int reg=Integer.parseInt(x5);
         this.setVisible(false);
-        new DeleteRegular(address,port,user,pass).setVisible(true);
+        new DeleteRegular(address,port,user,pass,cust,reg).setVisible(true);}
+        catch (SQLException ex) {
+      JOptionPane.showMessageDialog(null, ex);
+    }
        
     }//GEN-LAST:event_jPanel3MouseClicked
 
     private void jPanel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel5MouseClicked
-       this.setVisible(false);
-        new NewAdmin(address,port,user,pass).setVisible(true); // TODO add your handling code here:
+       try {
+            java.util.Date date = new java.util.Date();
+      long t = date.getTime();
+      java.sql.Timestamp sqlTimestamp = new java.sql.Timestamp(t);
+                
+                Connection theConn;
+                String SQL;
+                SQLCONNECTION_NEW  MyCon = new SQLCONNECTION_NEW(address,port,user,pass);
+                theConn = MyCon.getConnection("Software_Parking_Project");
+                Statement stmt = theConn.createStatement();    
+                SQL = "select count(*) from Customers";
+                ResultSet rs = stmt.executeQuery(SQL);rs.next();
+                //RegularDBinfo_table.setModel(DbUtils.resultSetToTableModel(rs));
+                int j=rs.getInt(1);
+                System.out.println(j);
+                SQL = "select * from Customers where id="+j;
+                 rs=stmt.executeQuery(SQL);
+                while(rs.next()){
+                System.out.println(rs.getString(2));
+                x1=rs.getString(2);
+                 x5=rs.getString(3);
+              
+               
+                
+                }
+                int cust=Integer.parseInt(x1);
+                int reg=Integer.parseInt(x5);
+                if(reg<cust){
+        this.setVisible(false);
+        new NewAdmin(address,port,user,pass).setVisible(true); }
+        else
+                {JOptionPane.showMessageDialog(null, "ALL THE SLOTS ARE FILLED ,REGULAR CUSTOMERS CANNOT BE TAKEN IN! SORRY");    
+           this.setVisible(false);
+                    new Permission_Admin(address,port,user,pass).setVisible(true);
+                }}catch (SQLException ex) {
+      JOptionPane.showMessageDialog(null, ex);
+    }// T// TODO add your handl // TODO add your handling code here:
     }//GEN-LAST:event_jPanel5MouseClicked
 
     private void jPanel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseClicked
@@ -519,4 +625,4 @@ public class Permission_Admin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     // End of variables declaration//GEN-END:variables
-}
+String x1,x5;}

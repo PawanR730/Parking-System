@@ -16,8 +16,8 @@ public class DeleteRegular extends javax.swing.JFrame {
     /**
      * Creates new form DeleteRegular
      */
-    String address,port,user,pass;
-    public DeleteRegular(String a,String b,String c,String d) {
+    String address,port,user,pass;int cust,reg;
+    public DeleteRegular(String a,String b,String c,String d,int e,int f) {
          run();
         
         setTitle("Delete Regular Customer Account");
@@ -25,6 +25,8 @@ public class DeleteRegular extends javax.swing.JFrame {
         port = b;
         user = c;
         pass = d;
+        cust=e;
+        reg=f;
         setResizable(false);
         
         
@@ -182,7 +184,7 @@ public class DeleteRegular extends javax.swing.JFrame {
       String g_user=nametxt.getText();
       String g_vehi=vehitxt.getText();
        
-     SQLDeleteRegular make = new  SQLDeleteRegular(g_vehi,address,port,user,pass);
+     SQLDeleteRegular make = new  SQLDeleteRegular(g_vehi,address,port,user,pass,cust,reg);
        
     }//GEN-LAST:event_jButton1ActionPerformed
 

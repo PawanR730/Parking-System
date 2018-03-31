@@ -354,6 +354,35 @@ public class Upgrade_Guest extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     private void jPanel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseClicked
+           try {
+            java.util.Date date = new java.util.Date();
+      long t = date.getTime();
+      java.sql.Timestamp sqlTimestamp = new java.sql.Timestamp(t);
+                
+                Connection theConn;
+                String SQL;
+                SQLCONNECTION_NEW  MyCon = new SQLCONNECTION_NEW(address,port,user,pass);
+                theConn = MyCon.getConnection("Software_Parking_Project");
+                Statement stmt = theConn.createStatement();    
+                SQL = "select count(*) from Customers";
+                ResultSet rs = stmt.executeQuery(SQL);rs.next();
+                //RegularDBinfo_table.setModel(DbUtils.resultSetToTableModel(rs));
+                int j=rs.getInt(1);
+                System.out.println(j);
+                SQL = "select * from Customers where id="+j;
+                 rs=stmt.executeQuery(SQL);
+                while(rs.next()){
+                System.out.println(rs.getString(2));
+                x1=rs.getString(2);
+                 x5=rs.getString(3);
+              
+               
+                
+                }
+                int cust=Integer.parseInt(x1);
+                int reg=Integer.parseInt(x5);
+                if(reg<cust){
+
         String c_user = usernametxt.getText();
         String c_pass = passwordtxt.getText();
         String c_compass = cnfpasswordtxt.getText();
@@ -362,12 +391,16 @@ public class Upgrade_Guest extends javax.swing.JFrame {
         String c_gen = gender;
         String c_phone = phnotxt.getText();
         String c_address = addtxt.getText();
+        String c_vehi=venotxt.getText();
 
         if("".equals(c_user)){
             JOptionPane.showMessageDialog(null, "Please enter Username");
         }else if("".equals(c_pass)){
             JOptionPane.showMessageDialog(null, "Please enter Password");
-        }else if("".equals(c_compass)){
+        }else if("".equals(c_vehi)){
+            JOptionPane.showMessageDialog(null, "Please enter Vehicle number");
+        }
+        else if("".equals(c_compass)){
             JOptionPane.showMessageDialog(null, "Please enter Comfirm Password");
         }else if("".equals(c_name)){
             JOptionPane.showMessageDialog(null, "Please enter your Full Name");
@@ -384,12 +417,26 @@ public class Upgrade_Guest extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Please enter the Address");
         }
         else if(!c_pass.equals(c_compass)){
-            JOptionPane.showMessageDialog(null, "Passwords do not match,RE-ENTER AGAIN");
-        }
+            JOptionPane.showMessageDialog(null, "Passwords do not match,RE-ENTER AGAIN");}
+        else{
+        reg=reg+1;int guest=cust-reg;
+        SQL = "insert into Regular (user,password,name,gender,phone,address,rank,Vehicle,Time) values "
+                + "('" + c_user + "','" + c_pass + "','"+ c_name +"','" + c_gen + "','"+ c_phone +"','" + c_address +"','" + "General" +"','" + c_vehi +"','" + sqlTimestamp + "')";
+                stmt.executeUpdate(SQL);
+            SQL = "INSERT INTO Customers(Total_Customers,Regular_Customers,Guest_Customers) VALUES ('"+cust+"','"+reg+"','"+guest+"')";  
+                stmt.executeUpdate(SQL); 
+                JOptionPane.showMessageDialog(null, "Regular customers updated");
+                this.setVisible(false);
+                    new Permission_Admin(address,port,user,pass).setVisible(true);
         /*else{
             new loginforadd(address,port,user,pass,c_user,c_pass,c_compass,c_name,c_age,c_gen,c_phone,c_address,c_rank).setVisible(true);
-        }
-        */
+        }*/
+        }}else
+                JOptionPane.showMessageDialog(null, "ALL THE SLOTS ARE FILLED ,REGULAR CUSTOMERS CANNOT BE TAKEN IN! SORRY");    
+           this.setVisible(false);
+                    new Permission_Admin(address,port,user,pass).setVisible(true);}catch (SQLException ex) {
+      JOptionPane.showMessageDialog(null, ex);
+    }
     }//GEN-LAST:event_jPanel2MouseClicked
 
     private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
@@ -490,4 +537,4 @@ String gender,check;
     private javax.swing.JTextField usernametxt;
     private javax.swing.JTextField venotxt;
     // End of variables declaration//GEN-END:variables
-}
+String x1,x5;}

@@ -38,8 +38,11 @@ public class SQLCreateRegular {
       stmt = c.createStatement();
       if (!found) {
         if (tname.equals("Regular")) {
-              SQL = "create table Regular (user varchar(10),password varchar(10),name varchar(30),"
-                  + "gender varchar(10),phone varchar(20),address varchar(80),rank varchar(10),primary key(user),Vehicle varchar(40),Time TIMESTAMP)";
+              SQL = "create table Regular (user varchar(10),"
+                      + "password varchar(10),name varchar(30),"
+                      + "gender varchar(10),phone varchar(20),"
+                      + "address varchar(80),rank varchar(10),primary key(user),"
+                      + "Vehicle varchar(40),Time TIMESTAMP)";
   
         }
         stmt.executeUpdate(SQL);

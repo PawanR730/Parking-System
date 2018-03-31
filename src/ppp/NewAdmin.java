@@ -292,7 +292,34 @@ String address,port,user,pass;
     }//GEN-LAST:event_passtxtActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
+ try {
+            java.util.Date date = new java.util.Date();
+      long t = date.getTime();
+      java.sql.Timestamp sqlTimestamp = new java.sql.Timestamp(t);
+                
+                Connection theConn;
+                String SQL;
+                SQLCONNECTION_NEW  MyCon = new SQLCONNECTION_NEW(address,port,user,pass);
+                theConn = MyCon.getConnection("Software_Parking_Project");
+                Statement stmt = theConn.createStatement();    
+                SQL = "select count(*) from Customers";
+                ResultSet rs = stmt.executeQuery(SQL);rs.next();
+                //RegularDBinfo_table.setModel(DbUtils.resultSetToTableModel(rs));
+                int j=rs.getInt(1);
+                System.out.println(j);
+                SQL = "select * from Customers where id="+j;
+                 rs=stmt.executeQuery(SQL);
+                while(rs.next()){
+                System.out.println(rs.getString(2));
+                x1=rs.getString(2);
+                 x5=rs.getString(3);
+              
+               
+                
+                }
+                int cust=Integer.parseInt(x1);
+                int reg=Integer.parseInt(x5);
+                if(reg<cust){
         String c_user,c_pass,c_compass,c_name,c_gen,c_phone,c_address,c_rank,c_monthly,c_daily,c_mtax,c_dtax,c_vehi;
 
         c_user = usertxt.getText();
@@ -334,41 +361,33 @@ String address,port,user,pass;
         }else if("".equals(c_address)){
             JOptionPane.showMessageDialog(null, "Please enter the Address");
         }else if(!c_pass.equals(c_compass)){
-            JOptionPane.showMessageDialog(null, "Password not math");
+            JOptionPane.showMessageDialog(null, "Password do not match");
         }
         else if("".equals(c_vehi)){
             JOptionPane.showMessageDialog(null, "Please enter Vehicle NO.");}
         else{
-            Connection c;    SQLCONNECTION_NEW MyCon;
-            Statement stmt;  String SQL;
-            Connection theConn = null;java.util.Date date = new java.util.Date();
-            long t = date.getTime();
-            java.sql.Timestamp sqlTimestamp = new java.sql.Timestamp(t);
-            try {
 
-                MyCon = new SQLCONNECTION_NEW(address,port,user,pass);
-                theConn = MyCon.getConnection("Software_Parking_Project");
-                stmt = theConn.createStatement();
+                
                 SQL = "insert into Regular (user,password,name,gender,phone,address,rank,Vehicle,Time) values "
                 + "('" + c_user + "','" + c_pass + "','"+ c_name +"','" + c_gen + "','"+ c_phone +"','" + c_address +"','" + c_rank +"','" + c_vehi +"','" + sqlTimestamp + "')";
                 stmt.executeUpdate(SQL);
-                JOptionPane.showMessageDialog(null, "Adding Successful");//monthly_fare INT not NULL,daily_fare INT not NULL
-                new Permission_Admin(address,port,user,pass).setVisible(true);
-                setVisible(false);
-            }
-            catch(SQLException ex) {
-                JOptionPane.showMessageDialog(null, ex);
-            }
-            finally {
-                try {
-                    if (theConn != null) theConn.close();
-                }
-                catch (Exception e) {
-
-                }
-            }
-        }
-
+                reg=reg+1;int guest=cust-reg;
+            SQL = "INSERT INTO Customers(Total_Customers,Regular_Customers,Guest_Customers) VALUES ('"+cust+"','"+reg+"','"+guest+"')";  
+                stmt.executeUpdate(SQL); 
+                JOptionPane.showMessageDialog(null, "Regular Customers updated");
+        this.setVisible(false);
+                    new Permission_Admin(address,port,user,pass).setVisible(true);
+                /*else{
+            new loginforadd(address,port,user,pass,c_user,c_pass,c_compass,c_name,c_age,c_gen,c_phone,c_address,c_rank).setVisible(true);
+        }*/
+        }}else
+                {JOptionPane.showMessageDialog(null, "ALL THE SLOTS ARE FILLED ,REGULAR CUSTOMERS CANNOT BE TAKEN IN! SORRY");    
+            this.setVisible(false);
+                    new Permission_Admin(address,port,user,pass).setVisible(true);
+                }}catch (SQLException ex) {
+      JOptionPane.showMessageDialog(null, ex);
+    }
+               
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
@@ -443,4 +462,4 @@ private void run(){
     private javax.swing.JTextField ranktxt;
     private javax.swing.JTextField usertxt;
     // End of variables declaration//GEN-END:variables
-String gender;}
+String gender,x1,x5;}
