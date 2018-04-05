@@ -557,13 +557,13 @@ else if("".equals(c_drvlic)){
                 + "('" + c_name +"','" + c_gen + "','"+ c_phone +"','" + c_address +"','" + c_rank + "','" +c_vehi+ "','" +c_drvlic+ "','"  + sqlTimestamp +  "','"  + slotty +  "')";
                 stmt.executeUpdate(SQL);
                 JOptionPane.showMessageDialog(null, "Adding Successful");
-                MyCon = new  SQLCONNECTION_NEW(address,port,user,pass);
+              /*  MyCon = new  SQLCONNECTION_NEW(address,port,user,pass);
       theConn = MyCon.getConnection("Software_Parking_Project");
        stmt = theConn.createStatement();
        
-      SQL = "insert into Timetable (Time_in,Date,Vehicle,name,Slot) values "
+     /* SQL = "insert into Timetable (Time_in,Date,Vehicle,name,Slot) values "
               + "('" + sqlTimestamp + "','"+ d +"','" +c_vehi + "','"+c_name+"','"+ slotty +"')";  
-      stmt.executeUpdate(SQL); 
+      stmt.executeUpdate(SQL); */
         JOptionPane.showMessageDialog(null, "Car Checked In and the slot Number is "+ slotty );
                 
                 

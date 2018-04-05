@@ -369,7 +369,7 @@ this.setVisible(false);
 
     private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
        this.setVisible(false);
-        new FareGuest(address,port,user,pass).setVisible(true); // TODO add your handling code here:
+        new exit_guest(address,port,user,pass).setVisible(true); // TODO add your handling code here:
     }//GEN-LAST:event_jPanel3MouseClicked
 
     /**
