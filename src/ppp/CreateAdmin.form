@@ -100,11 +100,9 @@
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                               <Component id="c_reg" max="32767" attributes="0"/>
                                               <Component id="c_cust" alignment="0" max="32767" attributes="0"/>
-                                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                                  <Component id="mtaxtxt" alignment="0" pref="179" max="32767" attributes="0"/>
-                                                  <Component id="dtaxtxt" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="monthtxt" alignment="0" max="32767" attributes="0"/>
-                                              </Group>
+                                              <Component id="mtaxtxt" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="dtaxtxt" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="monthtxt" alignment="0" max="32767" attributes="0"/>
                                               <Component id="dailytxt" alignment="0" min="-2" pref="182" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>

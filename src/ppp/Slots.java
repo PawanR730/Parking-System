@@ -125,8 +125,9 @@ String address,port,user,pass;
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
-        jPanel7.setBackground(new java.awt.Color(217, 30, 24));
+        jPanel7.setBackground(new java.awt.Color(0, 0, 0));
 
         jLabel7.setBackground(new java.awt.Color(51, 153, 255));
         jLabel7.setFont(new java.awt.Font("Bookman Old Style", 1, 36)); // NOI18N
@@ -137,14 +138,16 @@ String address,port,user,pass;
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel4.setBackground(new java.awt.Color(236, 100, 75));
+        jPanel4.setBackground(new java.awt.Color(0, 0, 0));
         jPanel4.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPanel4MouseClicked(evt);
             }
         });
 
+        jLabel6.setBackground(new java.awt.Color(0, 0, 0));
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("GO BACK");
@@ -166,6 +169,7 @@ String address,port,user,pass;
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        c_cust.setFont(new java.awt.Font("Bookman Old Style", 1, 24)); // NOI18N
         c_cust.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 c_custMouseClicked(evt);
@@ -177,13 +181,14 @@ String address,port,user,pass;
             }
         });
 
+        c_reg.setFont(new java.awt.Font("Bookman Old Style", 1, 24)); // NOI18N
         c_reg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 c_regActionPerformed(evt);
             }
         });
 
-        jPanel2.setBackground(new java.awt.Color(226, 106, 106));
+        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
 
         jLabel3.setFont(new java.awt.Font("Bookman Old Style", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -216,7 +221,7 @@ String address,port,user,pass;
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.setBackground(new java.awt.Color(226, 106, 106));
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
         jLabel1.setFont(new java.awt.Font("Bookman Old Style", 1, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -249,7 +254,8 @@ String address,port,user,pass;
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel3.setBackground(new java.awt.Color(236, 100, 75));
+        jPanel3.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPanel3MouseClicked(evt);
@@ -361,6 +367,7 @@ String address,port,user,pass;
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void c_custActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c_custActionPerformed

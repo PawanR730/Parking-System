@@ -63,7 +63,6 @@ boolean[] array=new boolean[100];
         jLabel3 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
@@ -81,6 +80,7 @@ boolean[] array=new boolean[100];
         jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel3.setBackground(new java.awt.Color(97, 212, 195));
@@ -197,14 +197,6 @@ boolean[] array=new boolean[100];
         );
 
         jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, 240, 70));
-
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 440, -1, -1));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, 490));
 
@@ -393,6 +385,7 @@ boolean[] array=new boolean[100];
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 0, 260, 490));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
@@ -575,61 +568,6 @@ boolean[] array=new boolean[100];
         
     }//GEN-LAST:event_jPanel1MouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       /*
-        java.util.Date date = new java.util.Date();
-      long t = date.getTime();
-      java.sql.Date sqlDate = new java.sql.Date(t);
-      java.sql.Time sqlTime = new java.sql.Time(t);
-      java.sql.Timestamp sqlTimestamp = new java.sql.Timestamp(t);
-      System.out.println("sqlDate=" + sqlDate);
-      System.out.println("sqlTime=" + sqlTime);
-      System.out.println("sqlTimestamp=" + sqlTimestamp);
-        */
-       java.sql.Timestamp in = null,out = null;
-        
-        Connection theConn = null; String SQL; 
-    
-    try {
-      SQLCONNECTION_NEW  MyCon = new  SQLCONNECTION_NEW(address,port,user,pass);
-      theConn = MyCon.getConnection("Software_Parking_Project");
-      Statement stmt = theConn.createStatement();
-      SQL = "select * from Timetable where id = '" +x2+ "'";      
-      ResultSet rs = stmt.executeQuery(SQL);  
-     
-      while (rs.next()) {
-        in=rs.getTimestamp("Time_in");
-         out=rs.getTimestamp("Time_out");
-        
-        
-      }
-        long milliseconds1 = in.getTime();
-  long milliseconds2 = out.getTime();
-       long diff=milliseconds2-milliseconds1;
-
-     long diffSeconds = diff / 1000;
-  long diffMinutes = diff / (60 * 1000);
-  long diffHours = diff / (60 * 60 * 1000);
-  long diffDays = diff / (24 * 60 * 60 * 1000);
-      
-      System.out.println(diffSeconds);
-      
-      
-    }
-    catch (SQLException ex) {
-      JOptionPane.showMessageDialog(null,ex);
-    }
-    finally {
-      try {
-        if (theConn != null) theConn.close();       
-      }
-      catch (SQLException e) {
-      }
-    }
-        
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void jPanel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel9MouseClicked
        
         new UpdateRegularInfo(address,port,user,pass,vehi).setVisible(true);
@@ -681,7 +619,6 @@ boolean[] array=new boolean[100];
    // }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;

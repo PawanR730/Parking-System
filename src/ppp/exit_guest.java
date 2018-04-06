@@ -92,7 +92,7 @@ public class exit_guest extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(236, 100, 75));
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
         jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPanel1MouseClicked(evt);
@@ -117,7 +117,7 @@ public class exit_guest extends javax.swing.JFrame {
             .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        jPanel4.setBackground(new java.awt.Color(236, 100, 75));
+        jPanel4.setBackground(new java.awt.Color(0, 0, 0));
         jPanel4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPanel4MouseClicked(evt);
@@ -301,7 +301,7 @@ public class exit_guest extends javax.swing.JFrame {
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 700, 470));
 
-        jPanel8.setBackground(new java.awt.Color(217, 30, 24));
+        jPanel8.setBackground(new java.awt.Color(0, 0, 0));
 
         jLabel4.setFont(new java.awt.Font("Bookman Old Style", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));

@@ -61,6 +61,7 @@ public class Regular_Customer_login extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(36, 47, 65));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.white, 4));
@@ -256,6 +257,7 @@ public class Regular_Customer_login extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void usertxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usertxtActionPerformed

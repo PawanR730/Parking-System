@@ -62,6 +62,7 @@ public class RegularselfDBinfo extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         RegularselfDBinfo_table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -114,6 +115,7 @@ public class RegularselfDBinfo extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

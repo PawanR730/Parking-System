@@ -65,6 +65,7 @@ public class Guest_Customer extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(97, 212, 195));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
@@ -268,6 +269,7 @@ public class Guest_Customer extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
@@ -369,7 +371,7 @@ this.setVisible(false);
 
     private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
        this.setVisible(false);
-        new exit_guest(address,port,user,pass).setVisible(true); // TODO add your handling code here:
+        new FareGuest(address,port,user,pass).setVisible(true); // TODO add your handling code here:
     }//GEN-LAST:event_jPanel3MouseClicked
 
     /**

@@ -3,22 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Z:/SE2/Parking-System/src/ppp/Admin.java</file>
-            <file>file:/Z:/SE2/Parking-System/src/ppp/NewAdmin.java</file>
+            <file>file:/Z:/SE2/Parking-System/src/ppp/UpdateRegularInfo.java</file>
+            <file>file:/Z:/SE2/Parking-System/src/ppp/DisplayRegularFare.java</file>
+            <file>file:/Z:/SE2/Parking-System/src/ppp/FareDBinfo.java</file>
             <file>file:/Z:/SE2/Parking-System/src/ppp/FareGuest.java</file>
-            <file>file:/Z:/SE2/Parking-System/src/ppp/Regular_Customer_Registration.java</file>
-            <file>file:/Z:/SE2/Parking-System/src/ppp/On_entry_guest.java</file>
-            <file>file:/Z:/SE2/Parking-System/src/ppp/SQLCreateCustomers.java</file>
-            <file>file:/Z:/SE2/Parking-System/src/ppp/Upgrade_Guest.java</file>
+            <file>file:/Z:/SE2/Parking-System/src/ppp/Slots.java</file>
+            <file>file:/Z:/SE2/Parking-System/src/ppp/exit_guest.java</file>
+            <file>file:/Z:/SE2/Parking-System/src/ppp/Guest_Customer.java</file>
             <file>file:/Z:/SE2/Parking-System/src/ppp/user.java</file>
             <file>file:/Z:/SE2/Parking-System/src/ppp/DeleteRegular.java</file>
-            <file>file:/Z:/SE2/Parking-System/src/ppp/SQLDeleteRegular.java</file>
-            <file>file:/Z:/SE2/Parking-System/src/ppp/SQLCreateGuest.java</file>
-            <file>file:/Z:/SE2/Parking-System/src/ppp/Fare__Admin.java</file>
-            <file>file:/Z:/SE2/Parking-System/src/ppp/Guest_Customer.java</file>
-            <file>file:/Z:/SE2/Parking-System/src/ppp/SQLDeleteParkingSlot.java</file>
-            <file>file:/Z:/SE2/Parking-System/src/ppp/Permission_Admin.java</file>
-            <file>file:/Z:/SE2/Parking-System/src/ppp/Regular_Customer.java</file>
         </group>
     </open-files>
 </project-private>

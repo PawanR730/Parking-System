@@ -63,6 +63,7 @@ public class GuestDBinfo extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         GuestDBtable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -123,6 +124,7 @@ public class GuestDBinfo extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked

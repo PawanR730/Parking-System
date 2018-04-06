@@ -544,10 +544,9 @@ String address,port,user,pass;
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(c_reg)
                                             .addComponent(c_cust)
-                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                .addComponent(mtaxtxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
-                                                .addComponent(dtaxtxt, javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(monthtxt, javax.swing.GroupLayout.Alignment.LEADING))
+                                            .addComponent(mtaxtxt)
+                                            .addComponent(dtaxtxt)
+                                            .addComponent(monthtxt)
                                             .addComponent(dailytxt, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -787,12 +786,12 @@ String address,port,user,pass;
                       SQL = "INSERT INTO Customers(Total_Customers,Regular_Customers,Guest_Customers) VALUES ('"+j1+"','"+i1+"','"+k1+"')";  
                 stmt.executeUpdate(SQL); 
                 //JOptionPane.showMessageDialog(null, "Total Customers updated");
-                //JOptionPane.showMessageDialog(null, "Regular Customers updated");
-                new CreateAdmin(address,port,user,pass).setVisible(true);
+                JOptionPane.showMessageDialog(null, "ADDING SUCCESSFUL");
+                new user(address,port,user,pass).setVisible(true);
                 this.setVisible(false);
                 
                 }else
-                 { JOptionPane.showMessageDialog(null, "Enter correct number of regular customers and guest customers");new user(address,port,user,pass).setVisible(true);
+                 { JOptionPane.showMessageDialog(null, "Enter correct number of regular customers and guest customers");new CreateAdmin(address,port,user,pass).setVisible(true);
                 this.setVisible(false);}}
                     
                     catch(SQLException ex) {
