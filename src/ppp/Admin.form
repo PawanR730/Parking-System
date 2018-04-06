@@ -399,7 +399,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="           FARE DATABASE"/>
+                <Property name="text" type="java.lang.String" value="       FARE DATABASE"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -446,7 +446,7 @@
                   <Component id="jPanel5" min="-2" pref="121" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jPanel6" min="-2" pref="120" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   <Component id="jPanel9" min="-2" pref="135" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -600,6 +600,9 @@
               <Color id="Hand Cursor"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jPanel9MouseClicked"/>
+          </Events>
 
           <Layout>
             <DimensionLayout dim="0">

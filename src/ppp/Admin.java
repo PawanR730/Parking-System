@@ -215,7 +215,7 @@ public class Admin extends javax.swing.JFrame {
 
         jLabel13.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("           FARE DATABASE");
+        jLabel13.setText("       FARE DATABASE");
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -359,6 +359,11 @@ public class Admin extends javax.swing.JFrame {
         jPanel9.setBackground(new java.awt.Color(44, 62, 80));
         jPanel9.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
         jPanel9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel9MouseClicked(evt);
+            }
+        });
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ppp/Icons/Registration_64px.png"))); // NOI18N
 
@@ -423,7 +428,7 @@ public class Admin extends javax.swing.JFrame {
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(26, 26, 26)
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -468,6 +473,12 @@ public class Admin extends javax.swing.JFrame {
        this.setVisible(false);
         new FareDBinfo(address,port,user,pass).setVisible(true); // TODO add your handling code here:
     }//GEN-LAST:event_jPanel11MouseClicked
+
+    private void jPanel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel9MouseClicked
+       
+        this.setVisible(false);
+        new AdminManageAccount(address,port,user,pass).setVisible(true);
+    }//GEN-LAST:event_jPanel9MouseClicked
 
     /**
      * @param args the command line arguments

@@ -327,7 +327,7 @@ public class Guest_Customer extends javax.swing.JFrame {
                     else
                     {
                          try {
-      SQL = "select count(*) from guest";
+      SQL = "select count(*) from Guest";
                  rs = stmt.executeQuery(SQL);rs.next();
                 //RegularDBinfo_table.setModel(DbUtils.resultSetToTableModel(rs));
                 int p=rs.getInt(1);int id=p+1;

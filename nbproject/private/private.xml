@@ -3,15 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Z:/SE2/Parking-System/src/ppp/UpdateRegularInfo.java</file>
-            <file>file:/Z:/SE2/Parking-System/src/ppp/DisplayRegularFare.java</file>
-            <file>file:/Z:/SE2/Parking-System/src/ppp/FareDBinfo.java</file>
-            <file>file:/Z:/SE2/Parking-System/src/ppp/FareGuest.java</file>
-            <file>file:/Z:/SE2/Parking-System/src/ppp/Slots.java</file>
-            <file>file:/Z:/SE2/Parking-System/src/ppp/exit_guest.java</file>
-            <file>file:/Z:/SE2/Parking-System/src/ppp/Guest_Customer.java</file>
-            <file>file:/Z:/SE2/Parking-System/src/ppp/user.java</file>
-            <file>file:/Z:/SE2/Parking-System/src/ppp/DeleteRegular.java</file>
+            <file>file:/home/pawan/alwayscloned/Parking-System/src/ppp/UpdateRegularInfo.java</file>
+            <file>file:/home/pawan/alwayscloned/Parking-System/src/ppp/Admin.java</file>
+            <file>file:/home/pawan/alwayscloned/Parking-System/src/ppp/AdminManageAccount.java</file>
+            <file>file:/home/pawan/alwayscloned/Parking-System/src/ppp/Admin_Login.java</file>
+            <file>file:/home/pawan/alwayscloned/Parking-System/src/ppp/Regular_Customer_Registration.java</file>
         </group>
     </open-files>
 </project-private>

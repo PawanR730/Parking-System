@@ -65,7 +65,7 @@ public class Admin_Login extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel1.setForeground(java.awt.Color.white);
-        jLabel1.setText("         ADMIN?LOGIN HERE");
+        jLabel1.setText("         ADMIN ?  LOGIN HERE.");
         jLabel1.setBorder(new javax.swing.border.LineBorder(java.awt.Color.white, 3, true));
 
         jLabel2.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -315,8 +315,9 @@ public class Admin_Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel2MouseClicked
 
     private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
-        this.setVisible(false);
-        new Admin_Login(address,port,user,pass).setVisible(true);        // TODO add your handling code here:
+        usertxt.setText(null);
+        passtxt.setText(null);
+// TODO add your handling code here:
     }//GEN-LAST:event_jPanel3MouseClicked
 
     private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
